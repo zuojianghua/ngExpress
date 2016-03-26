@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="index">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>标题</title>
+        
+        <link rel="stylesheet" href="static/bootstrap/dist/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="static/bootstrap/dist/css/bootstrap-theme.min.css" >
+        
+        <script src="static/jquery/dist/jquery.min.js"></script>
+        <script src="static/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+        <script src="static/angular/angular.min.js"></script>
+        <script src="static/angular-route/angular-route.min.js"></script>
+        
+        <script src="index/controller/index.js"></script>
+        
+        <script src="script/app.js"></script>
+    </head>
+
+    <body ng-controller="MainCtrl">
+        <div class="main_wrap" ng-view></div>
+    </body>
+</html>

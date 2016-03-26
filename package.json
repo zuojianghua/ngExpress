@@ -1,0 +1,23 @@
+{
+  "name": "ngexpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuojianghua/ngExpress.git"
+  },
+  "author": "28842136@qq.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zuojianghua/ngExpress/issues"
+  },
+  "homepage": "https://github.com/zuojianghua/ngExpress#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "forever": "^0.15.1"
+  }
+}

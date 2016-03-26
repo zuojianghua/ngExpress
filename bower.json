@@ -1,0 +1,24 @@
+{
+  "name": "ngExpress",
+  "homepage": "https://github.com/zuojianghua/ngExpress",
+  "authors": [
+    "zuojianghua <28842136@qq.com>"
+  ],
+  "description": "",
+  "main": "index.js",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3"
+  }
+}
