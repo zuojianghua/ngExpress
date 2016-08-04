@@ -1,3 +1,165 @@
-<div ng-include="'index/html/component/nav.html'" ng-controller="NavCtrl"></div>
+<h3>
+    顾客档案
+    <p class="pull-right">
+        <!--<div class="input-group">
+            <input type="text" class="form-control col-sm-4" placeholder="快速查询">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">查找</button>
+            </span>
+        </div>-->
+        <button type="button" class="btn btn-info ">新增</button>
+        <button type="button" class="btn btn-info ">导出</button>
+        <button type="button" class="btn btn-info ">刷新</button>
+    </p>
+</h3>
 
-<h1>你好</h1>
+<hr>
+
+<table class="form-horizontal" ng-hide="0">
+    <tr>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">关键词</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="顾客代码或姓名">
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">渠道</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="" ng-model="histroy['/hello'].filter_data.qudao" >
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">店铺</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="">
+                </div>
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">来源</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="">
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">店员</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="">
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">性别</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="">
+                </div>
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">手机</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="顾客代码或姓名">
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">年龄</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="">
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">顾客等级</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="" placeholder="">
+                </div>
+            </div>
+        </td>
+
+    </tr>
+</table>
+
+<hr>
+
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>顾客代码</th>
+            <th>姓名</th>
+            <th>渠道</th>
+            <th>店铺</th>
+            <th>性别</th>
+            <th>生日</th>
+            <th>年龄</th>
+            <th>顾客等级</th>
+            <th>手机</th>
+            <th>积分</th>
+            <th>消费总额</th>
+            <th>最近消费日</th>
+            <th>操作</th> 
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="li in histroy['/hello'].list_data track by $index">
+            <td>{{li.custom_code}}</td>
+            <td>{{li.custom_name}}</td>
+            <td>{{li.org_code}}</td>
+            <td>{{li.shop_name}}</td>
+            <td>{{li.sex}}</td>
+            <td>{{li.berth_day}}</td>
+            <td>{{li.age}}</td>
+            <td>{{li.custom_level_name}}</td>
+            <td>{{li.tel}}</td>
+            <td>{{li.interg}}</td>
+            <td>{{li.money}}</td>
+            <td>{{li.last_day}}</td>
+            <td>
+                <a type="button" class="btn btn-xs btn-primary" ng-href="/#dashboard">查看</a>
+                <button type="button" class="btn btn-xs btn-primary">重置密码</button>
+                <button type="button" class="btn btn-xs btn-primary">变更手机</button>
+                <button type="button" class="btn btn-xs btn-primary">发卡</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

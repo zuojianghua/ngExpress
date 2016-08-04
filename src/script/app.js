@@ -1,11 +1,13 @@
-angular.module('index', [
-    'ngRoute'
+angular.module('myApp', [
+    'ngRoute',
+    'myService'
 ])
 .controller('MainCtrl', MainCtrl)
 .controller('NavCtrl', NavCtrl)
 .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
-        //路由设置 =============================================
+        //路由设置 =================================================
         $routeProvider
+        .when('/dashboard', {templateUrl: 'index/html/dashboard.html', controller: DashboardCtrl})
         .when('/hello', {templateUrl: 'index/html/hello.html', controller: HelloCtrl})
         .otherwise({redirectTo: '/hello'});
         

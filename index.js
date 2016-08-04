@@ -3,7 +3,7 @@ var app = express();
 
 
 app.use('/static', express.static('bower_components'));
-
+app.use('/api_demo', express.static('api_demo'));
 
 app.use('/', express.static('src'));
 

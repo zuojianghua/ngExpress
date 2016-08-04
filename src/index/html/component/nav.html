@@ -6,7 +6,7 @@
     
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav" >
-        <li ng-repeat="m in navs | orderBy:'position':false" class="{{nav==m.name?'active':''}}" ><a href="#">{{m.title}}</a></li>
+        <li ng-repeat="m in navs | orderBy:'position':false" class="{{nav==m.name?'active':''}}" ><a ng-href="{{m.url}}">{{m.title}}</a></li>
       </ul>
       
       <form class="navbar-form navbar-left" role="search">
