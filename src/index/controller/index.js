@@ -15,17 +15,22 @@ function ($rootScope, $scope, $location, $window) {
         // }catch(e){
 
         // }
-        
+        console.log($rootScope.histroy);
     });
 
-
+    $scope.close_tab = function(k){
+        delete $rootScope.histroy[k];
+    };
 }];
 
 var HelloCtrl = ['$rootScope', '$scope', '$location', '$window', 'api',
 function ($rootScope, $scope, $location, $window ,api) {
+    $rootScope.url = '/hello';
     if(!$rootScope.histroy.hasOwnProperty('/hello')){
         $rootScope.histroy['/hello'] = $scope = {
             nav : 'm1',
+            title: '列表页',
+            url: '/hello',
             list_data:[],
             filter_data:{
                 'qudao':'a1111'
@@ -34,7 +39,7 @@ function ($rootScope, $scope, $location, $window ,api) {
         };
     }
     
-    console.log($rootScope.histroy['/hello']);
+    //console.log($rootScope.histroy['/hello']);
     
 
     api.request('custom_list').then(function(res){
@@ -50,7 +55,13 @@ function ($rootScope, $scope, $location, $window ,api) {
 var DashboardCtrl = ['$rootScope', '$scope', '$location', '$window', 
 function ($rootScope, $scope, $location, $window) {
     $scope.nav = '';
-
+    $rootScope.url = '/dashboard';
+    if(!$rootScope.histroy.hasOwnProperty('/dashboard')){
+        $rootScope.histroy['/dashboard'] = $scope = {
+            'title':'测试页',
+            'url': '/dashboard',
+        };
+    }
 }];
 
 var NavCtrl = ['$rootScope', '$scope', '$location', '$window', 

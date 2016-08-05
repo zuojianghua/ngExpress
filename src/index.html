@@ -50,9 +50,7 @@
             <div class="col-md-10">
                 <ul class="nav nav-tabs">
                     <li role="presentation"><a href="#">首页</a></li>
-                    <li role="presentation" class="active"><a href="#">页签1</a></li>
-                    <li role="presentation"><a href="#">页签2</a></li>
-                    <li role="presentation"><a href="#">页签3</a></li>
+                    <li role="presentation" ng-class="(url==k)?'active':''" ng-repeat="(k,v) in histroy track by $index"><a ng-href="#{{k}}">{{v.title}} <span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="close_tab(k);"></span></a></li>
                 </ul>
                 <div class="main_wrap" ng-view></div>
             </div>
