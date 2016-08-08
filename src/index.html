@@ -16,46 +16,29 @@
     <script src="static/angular/angular.min.js"></script>
     <script src="static/angular-route/angular-route.min.js"></script>
 
-    <script src="index/controller/index.js"></script>
+    <script src="controller/component/ComponentMenuCtrl.js"></script>
+    <script src="controller/component/ComponentNavCtrl.js"></script>
+    <script src="controller/component/ComponentTabCtrl.js"></script>
+
+    <script src="controller/index/IndexMainCtrl.js"></script>
+    <script src="controller/index/IndexIndexCtrl.js"></script>
+    <script src="controller/index/IndexHelloCtrl.js"></script>
+    <script src="controller/index/IndexDashboardCtrl.js"></script>
 
     <script src="script/app.js"></script>
     <script src="script/service.js"></script>
 </head>
 
-<body ng-controller="MainCtrl">
+<body ng-controller="IndexMainCtrl">
     <div>
-        <div ng-include="'index/html/component/nav.html'" ng-controller="NavCtrl"></div>
+        <div ng-include="'html/component/ComponentNav.html'" ng-controller="ComponentNavCtrl"></div>
         <div class="row">
-            <div class="col-md-2">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">顾客资料</a>
-                    <a href="#" class="list-group-item">顾客档案<span class="badge">14</span></a>
-                    <a href="#" class="list-group-item">顾客等级</a>
-                    <a href="#" class="list-group-item">顾客标签</a>
-                    <a href="#" class="list-group-item">VIP卡档案</a>
-                    <a href="#" class="list-group-item">VIP卡系列</a>
-                    <a href="#" class="list-group-item">VIP卡等级</a>
-                    <a href="#" class="list-group-item">消费纪录</a>
-                    <a href="#" class="list-group-item">积分流水帐</a>
-                    <a href="#" class="list-group-item active">会员单据</a>
-                    <a href="#" class="list-group-item">积分调整单</a>
-                    <a href="#" class="list-group-item">积分变现单</a>
-                    <a href="#" class="list-group-item">VIP卡制成投放单</a>
-                    <a href="#" class="list-group-item">VIP店铺变更单</a>
-                    <a href="#" class="list-group-item">手机号码变更单</a>
-                    <a href="#" class="list-group-item">VIP等级变更单</a>
-                    <a href="#" class="list-group-item">VIP消费转移单</a>
-                </div>
-            </div>
+            <div class="col-md-2" ng-controller="ComponentMenuCtrl" ng-include="'html/component/ComponentMenu.html'"></div>
             <div class="col-md-10">
-                <ul class="nav nav-tabs">
-                    <li role="presentation"><a href="#">首页</a></li>
-                    <li role="presentation" ng-class="(url==k)?'active':''" ng-repeat="(k,v) in histroy track by $index"><a ng-href="#{{k}}">{{v.title}} <span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="close_tab(k);"></span></a></li>
-                </ul>
+                <ul class="nav nav-tabs" ng-controller="ComponentTabCtrl" ng-include="'html/component/ComponentTab.html'"></ul>
                 <div class="main_wrap" ng-view></div>
             </div>
         </div>
     </div>
 </body>
-
 </html>

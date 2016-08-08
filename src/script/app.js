@@ -2,15 +2,18 @@ angular.module('myApp', [
     'ngRoute',
     'myService'
 ])
-.controller('MainCtrl', MainCtrl)
-.controller('NavCtrl', NavCtrl)
-.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
+    .controller('IndexMainCtrl', IndexMainCtrl)
+    .controller('ComponentNavCtrl', ComponentNavCtrl)
+    .controller('ComponentMenuCtrl', ComponentMenuCtrl)
+    .controller('ComponentTabCtrl', ComponentTabCtrl)
+    .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         //路由设置 =================================================
         $routeProvider
-        .when('/dashboard', {templateUrl: 'index/html/dashboard.html', controller: DashboardCtrl})
-        .when('/hello', {templateUrl: 'index/html/hello.html', controller: HelloCtrl})
-        .otherwise({redirectTo: '/hello'});
-        
+            .when('/index', { templateUrl: 'html/index/IndexIndex.html', controller: IndexIndexCtrl })
+            //.when('/hello', { templateUrl: 'html/index/IndexHello.html', controller: IndexHelloCtrl })
+            .when('/dashboard', { templateUrl: 'html/index/IndexDashboard.html', controller: IndexDashboardCtrl })
+            .otherwise({ redirectTo: '/dashboard' });
+
         //HTTP异步设置 =============================================
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         /**
@@ -48,7 +51,7 @@ angular.module('myApp', [
 
         // Override $http service's default transformRequest
         $httpProvider.defaults.transformRequest = [function (data) {
-                return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
-            }];
+            return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
+        }];
     }
-]);
+    ]);
