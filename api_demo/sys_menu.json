@@ -1,0 +1,40 @@
+{
+    "status": 1,
+    "message": "获取成功",
+    "data": [
+        {
+            "name":"n1",
+            "title" :"会员",
+            "list":[
+                {
+                    "name":"m1",
+                    "title":"顾客资料",
+                    "list":[
+                        {"title":"顾客档案", "url":"/index"},
+                        {"title":"顾客等级", "url":"/test1"},
+                        {"title":"顾客档案", "url":"/test2"}
+                    ]
+                },
+                {
+                    "name":"m2",
+                    "title":"会员单据",
+                    "list":[
+                        {"title":"积分调整单", "url":"/test1"},
+                        {"title":"积分变现单", "url":"/test2"},
+                        {"title":"VIP制成投放单", "url":"/test3"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"n2",
+            "title" :"策略",
+            "list":[]
+        },
+        {
+            "name":"档案",
+            "title" :"档案",
+            "list":[]
+        }
+    ]
+}

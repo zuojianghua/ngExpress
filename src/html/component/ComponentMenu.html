@@ -1,19 +1,13 @@
-<div class="list-group">
-    <a href="#" class="list-group-item active">顾客资料</a>
+<!--<div class="list-group">
+    <a href="#" class="list-group-item active">+ 顾客资料</a>
     <a href="#/dashboard" class="list-group-item">顾客档案<span class="badge">14</span></a>
-    <a href="#/index" class="list-group-item">顾客等级</a>
-    <a href="#" class="list-group-item">顾客标签</a>
-    <a href="#" class="list-group-item">VIP卡档案</a>
-    <a href="#" class="list-group-item">VIP卡系列</a>
-    <a href="#" class="list-group-item">VIP卡等级</a>
-    <a href="#" class="list-group-item">消费纪录</a>
-    <a href="#" class="list-group-item">积分流水帐</a>
-    <a href="#" class="list-group-item active">会员单据</a>
-    <a href="#" class="list-group-item">积分调整单</a>
-    <a href="#" class="list-group-item">积分变现单</a>
-    <a href="#" class="list-group-item">VIP卡制成投放单</a>
-    <a href="#" class="list-group-item">VIP店铺变更单</a>
-    <a href="#" class="list-group-item">手机号码变更单</a>
-    <a href="#" class="list-group-item">VIP等级变更单</a>
-    <a href="#" class="list-group-item">VIP消费转移单</a>
+    <a href="#/dashboard" class="list-group-item">顾客档案<span class="badge">14</span></a>
+    <a href="#/dashboard" class="list-group-item">顾客档案<span class="badge">14</span></a>
+</div>-->
+
+<div class="panel panel-default">
+    <div class="list-group" ng-repeat="m in sub_menu track by $index">
+        <div class="list-group-item active" ng-click="show_submenu($index);" ng-init="i=$index;isShow[i]=true"><span>{{isShow[i]?'-':'+'}}</span> {{m.title}}</div>
+        <a ng-href="#{{s.url}}" class="list-group-item" ng-repeat="s in m.list" ng-show="isShow[i]">{{s.title}}</a>
+    </div>
 </div>

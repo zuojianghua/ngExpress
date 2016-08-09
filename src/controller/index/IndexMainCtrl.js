@@ -1,7 +1,8 @@
-var IndexMainCtrl = ['$rootScope', '$scope', '$location', '$window',
-    function ($rootScope, $scope, $location, $window) {
-        $rootScope.histroy = {};
+var IndexMainCtrl = ['$rootScope', '$scope', '$location', '$window','api',
+    function ($rootScope, $scope, $location, $window,api) {
 
+        //页签历史记录处理
+        $rootScope.histroy = {};
         $rootScope.$on('$routeChangeStart', function (evt, next, current) {
             //console.log($rootScope.histroy);
             // try{
@@ -27,12 +28,15 @@ var IndexMainCtrl = ['$rootScope', '$scope', '$location', '$window',
                 evt.preventDefault();
                 return;
             }
-
-            
         });
 
-        
+        //系统菜单处理, 获取全部菜单
+        $rootScope.sys_menu = [];
+        api.request('sys_menu').then(function (res) {
+            $rootScope.sys_menu = res.data.data;
+            $rootScope.sub_menu = res.data.data[0].list;
+        });
 
     }];
 
-IndexMainCtrl.$injector = ['$rootScope', '$scope', '$location', '$window'];
+IndexMainCtrl.$injector = ['$rootScope', '$scope', '$location', '$window','api'];
