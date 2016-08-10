@@ -1,6 +1,8 @@
 angular.module('myApp', [
     'ngRoute',
-    'myService'
+    'ngDialog',
+    'myService',
+    'myDirective'
 ])
     .controller('IndexMainCtrl', IndexMainCtrl)
     .controller('ComponentNavCtrl', ComponentNavCtrl)

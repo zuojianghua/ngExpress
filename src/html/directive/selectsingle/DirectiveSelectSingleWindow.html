@@ -1,0 +1,6 @@
+<h4>{{inputTitle}}</h4>
+<ul>
+    <li ng-repeat="li in list track by $index">
+        <a href="javascript:void(0);" ng-click="set_value(li);" >{{li.name}} --- {{li.code}}</a>
+    </li>
+</ul>
