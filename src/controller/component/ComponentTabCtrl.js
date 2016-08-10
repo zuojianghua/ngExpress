@@ -10,12 +10,12 @@ var ComponentTabCtrl = ['$rootScope', '$scope', '$location', '$window',
             if(k=='/dashboard'){
                 return;
             }
-            if($rootScope.histroy_url){
+            delete $rootScope.histroy[k];
+            if($rootScope.histroy_url && $rootScope.histroy.hasOwnProperty($rootScope.histroy_url)){
                 $location.path($rootScope.histroy_url);
             }else{
                 $location.path('/dashboard');
             }
             $location.replace();
-            delete $rootScope.histroy[k];
         };
     }];

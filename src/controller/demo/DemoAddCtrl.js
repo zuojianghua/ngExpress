@@ -18,8 +18,8 @@ var DemoAddCtrl = ['$rootScope', '$scope', '$location', '$window',
                 title: '新增表单页',
                 content: '',
                 form: {
-                    dianyuan_code: '000',
-                    dianyuan_name: '默认',
+                    dianyuan_code: '001',
+                    dianyuan_name: '张三',
                     first_day : '2016-10-10'
                 }
             };
