@@ -3,6 +3,30 @@
     "message": "获取成功",
     "data": [
         {
+            "name":"n0",
+            "title" :"样例",
+            "list":[
+                {
+                    "name":"m01",
+                    "title":"样例页面",
+                    "list":[
+                        {"title":"单据列表页", "url":"/demo/list", "name":"s01"},
+                        {"title":"单据详情页", "url":"/demo/view", "name":"s02"},
+                        {"title":"新增表单页", "url":"/demo/add", "name":"s03"}
+                    ]
+                },
+                {
+                    "name":"m02",
+                    "title":"样例页面",
+                    "list":[
+                        {"title":"样例页面", "url":"/test1", "name":"s04"},
+                        {"title":"样例页面", "url":"/test2", "name":"s05"},
+                        {"title":"样例页面", "url":"/test3", "name":"s06"}
+                    ]
+                }
+            ]
+        },
+        {
             "name":"n1",
             "title" :"会员",
             "list":[
@@ -10,18 +34,18 @@
                     "name":"m1",
                     "title":"顾客资料",
                     "list":[
-                        {"title":"顾客档案", "url":"/index"},
-                        {"title":"顾客等级", "url":"/test1"},
-                        {"title":"顾客档案", "url":"/test2"}
+                        {"title":"顾客档案", "url":"/dashboard", "name":"s1"},
+                        {"title":"顾客等级", "url":"/index", "name":"s2"},
+                        {"title":"顾客档案", "url":"/test2", "name":"s3"}
                     ]
                 },
                 {
                     "name":"m2",
                     "title":"会员单据",
                     "list":[
-                        {"title":"积分调整单", "url":"/test1"},
-                        {"title":"积分变现单", "url":"/test2"},
-                        {"title":"VIP制成投放单", "url":"/test3"}
+                        {"title":"积分调整单", "url":"/test1", "name":"s4"},
+                        {"title":"积分变现单", "url":"/test2", "name":"s5"},
+                        {"title":"VIP制成投放单", "url":"/test3", "name":"s6"}
                     ]
                 }
             ]

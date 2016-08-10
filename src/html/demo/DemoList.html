@@ -1,19 +1,4 @@
-<h3>
-    顾客档案
-    <p class="pull-right">
-        <!--<div class="input-group">
-            <input type="text" class="form-control col-sm-4" placeholder="快速查询">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">查找</button>
-            </span>
-        </div>-->
-        <button type="button" class="btn btn-info ">新增</button>
-        <button type="button" class="btn btn-info ">导出</button>
-        <button type="button" class="btn btn-info ">刷新</button>
-    </p>
-</h3>
-
-<hr>
+<div ng-include="'/html/component/ComponentTitle.html'"></div>
 
 <table class="form-horizontal" ng-hide="0">
     <tr>
@@ -29,7 +14,7 @@
             <div class="form-group">
                 <label for="" class="col-sm-4 control-label">渠道</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="" ng-model="histroy['/hello'].filter_data.qudao" >
+                    <input type="text" class="form-control" id="" placeholder="" ng-model="data.filter_data.qudao">
                 </div>
             </div>
         </td>
@@ -118,11 +103,11 @@
             <th>积分</th>
             <th>消费总额</th>
             <th>最近消费日</th>
-            <th>操作</th> 
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="li in histroy['/hello'].list_data track by $index">
+        <tr ng-repeat="li in data.list_data track by $index">
             <td>{{li.custom_code}}</td>
             <td>{{li.custom_name}}</td>
             <td>{{li.org_code}}</td>
@@ -136,7 +121,7 @@
             <td>{{li.money}}</td>
             <td>{{li.last_day}}</td>
             <td>
-                <a type="button" class="btn btn-xs btn-primary" ng-href="/#dashboard">查看</a>
+                <a type="button" class="btn btn-xs btn-primary">查看</a>
                 <button type="button" class="btn btn-xs btn-primary">重置密码</button>
                 <button type="button" class="btn btn-xs btn-primary">变更手机</button>
                 <button type="button" class="btn btn-xs btn-primary">发卡</button>
@@ -144,22 +129,23 @@
         </tr>
     </tbody>
 </table>
+
 <nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
 </nav>

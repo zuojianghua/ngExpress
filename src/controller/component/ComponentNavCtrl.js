@@ -4,6 +4,6 @@ var ComponentNavCtrl = ['$rootScope', '$scope', '$location', '$window',
         $rootScope.sub_menu = [];
         $scope.click_nav = function(m){
             $rootScope.sub_menu = m.list;
-            //console.log(m);
+            $rootScope.nav = m.name;
         }
     }];

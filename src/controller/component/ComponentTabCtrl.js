@@ -7,6 +7,9 @@ var ComponentTabCtrl = ['$rootScope', '$scope', '$location', '$window',
 
         //关闭TAB页面
         $scope.close_tab = function (k) {
+            if(k=='/dashboard'){
+                return;
+            }
             if($rootScope.histroy_url){
                 $location.path($rootScope.histroy_url);
             }else{

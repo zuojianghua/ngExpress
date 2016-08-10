@@ -9,9 +9,11 @@ angular.module('myApp', [
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         //路由设置 =================================================
         $routeProvider
-            .when('/index', { templateUrl: 'html/index/IndexIndex.html', controller: IndexIndexCtrl })
-            //.when('/hello', { templateUrl: 'html/index/IndexHello.html', controller: IndexHelloCtrl })
+            
             .when('/dashboard', { templateUrl: 'html/index/IndexDashboard.html', controller: IndexDashboardCtrl })
+            .when('/demo/list', { templateUrl: 'html/demo/DemoList.html', controller: DemoListCtrl })
+            .when('/demo/add', { templateUrl: 'html/demo/DemoAdd.html', controller: DemoAddCtrl })
+            //.when('/demo/view', { templateUrl: 'html/demo/DemoView.html', controller: DemoViewCtrl })
             .otherwise({ redirectTo: '/dashboard' });
 
         //HTTP异步设置 =============================================
