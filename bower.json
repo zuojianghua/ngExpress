@@ -20,6 +20,7 @@
     "bootstrap": "^3.3.6",
     "angular": "^1.5.3",
     "angular-route": "^1.5.3",
-    "ng-dialog": "^0.6.2"
+    "ng-dialog": "^0.6.2",
+    "angular-ui-calendar": "^1.0.2"
   }
 }

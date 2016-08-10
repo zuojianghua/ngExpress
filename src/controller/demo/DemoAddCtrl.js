@@ -17,9 +17,10 @@ var DemoAddCtrl = ['$rootScope', '$scope', '$location', '$window',
             $scope.data = {
                 title: '新增表单页',
                 content: '',
-                form:{
-                    dianyuan_code:'000',
-                    dianyuan_name:'默认'
+                form: {
+                    dianyuan_code: '000',
+                    dianyuan_name: '默认',
+                    first_day : '2016-10-10'
                 }
             };
             //纳入到tab历史中
@@ -32,18 +33,24 @@ var DemoAddCtrl = ['$rootScope', '$scope', '$location', '$window',
         }
 
         //获取店员信息
-        $scope.get_dianyuan_data = function(){
+        $scope.get_dianyuan_data = function () {
             return [
-                {'code':'001','name':'张三'},
-                {'code':'002','name':'李四'},
-                {'code':'003','name':'王五'}
+                { 'code': '001', 'name': '张三' },
+                { 'code': '002', 'name': '李四' },
+                { 'code': '003', 'name': '王五' }
             ];
         }
 
         //保存表单
-        $scope.save_form = function(){
+        $scope.save_form = function () {
             console.log($scope.data.form);
         }
+
+        
+        
+
+        
+
 
     }];
 

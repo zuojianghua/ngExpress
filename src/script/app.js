@@ -2,7 +2,8 @@ angular.module('myApp', [
     'ngRoute',
     'ngDialog',
     'myService',
-    'myDirective'
+    'myDirective',
+    'ui.calendar'
 ])
     .controller('IndexMainCtrl', IndexMainCtrl)
     .controller('ComponentNavCtrl', ComponentNavCtrl)
