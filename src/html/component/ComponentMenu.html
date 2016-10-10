@@ -1,13 +1,20 @@
-<!--<div class="list-group">
-    <a href="#" class="list-group-item active">+ 顾客资料</a>
-    <a href="#/dashboard" class="list-group-item">顾客档案<span class="badge">14</span></a>
-    <a href="#/dashboard" class="list-group-item">顾客档案<span class="badge">14</span></a>
-    <a href="#/dashboard" class="list-group-item">顾客档案<span class="badge">14</span></a>
-</div>-->
+<div class="logo"><img src="images/logo.png"></div>
+<div class="handle" ng-click="slideToggle()"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+<div class="first_menu_wrap">
+    <ul class="first_menu">
+        <li class="{{menu1_id==0?'curr':''}}" ng-click="goto('/dashboard');" >首页</li>
+        <li class="{{menu1_id==m.purview_id?'curr':''}}" ng-repeat="m in sys_menu" ng-click="click_menu1(m,$index);">{{m.name}}</li>
+    </ul>
+</div>
 
-<div class="panel panel-default">
-    <div class="list-group" ng-repeat="m in sub_menu track by $index">
-        <div class="list-group-item active" ng-click="show_submenu($index);" ng-init="i=$index;isShow[i]=true"><span>{{isShow[i]?'-':'+'}}</span> {{m.title}}</div>
-        <a ng-href="#{{s.url}}" class="list-group-item" ng-class="s.name==subMenu?'list-group-item-success':''" ng-repeat="s in m.list" ng-show="isShow[i]">{{s.title}}</a>
-    </div>
+<div class="second_menu_wrap" ng-show='1'>
+    <dl class="second_menu">
+        <dt class="title">{{sys_menu[menu1_index].name}}</dt>
+        <div ng-repeat="m2 in sub_menu track by $index">
+            <dt class="{{sub_menu_show[m2.purview_id]?'curr':''}}" ng-click="click_menu2(m2.purview_id);"><i></i>{{m2.name}}</dt>
+            <div ng-show="sub_menu_show[m2.purview_id]">
+                <dd ng-repeat="s in m2.child" ng-click="click_menu3(s);">{{s.name}}</dd>
+            </div>
+        </div>
+    </dl>
 </div>

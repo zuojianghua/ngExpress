@@ -1,3 +1,11 @@
-<li role="presentation" ng-class="(url==k)?'active':''" ng-repeat="(k,v) in histroy track by $index">
-    <a href="javascript:void(0);"><span ng-click="click_tab(k);" >{{v.scope.data.title}}</span> <span class="glyphicon glyphicon-remove-circle" ng-hide="k=='/dashboard'" aria-hidden="true" ng-click="close_tab(k);"></span></a>
-</li>
+<div class="tab_wrap">
+	<button class="button prev" ng-mouseenter="tab_scroll('left')"><span class="glyphicon glyphicon-chevron-left"></span></button>
+	<button class="button next" ng-mouseenter="tab_scroll('right')"><span class="glyphicon glyphicon-chevron-right"></span></button>
+	<ul class="tab_ul" id="tab_ul">
+		<li ng-class="(url==k)?'active':''" ng-repeat="(k,v) in histroy track by $index">
+			<span class="name" ng-click="click_tab(k);" ng-dblclick="close_tab(k);" >{{v.scope.data.title}}</span>
+			<span class="li_close" ng-hide="k=='/dashboard'" ng-click="close_tab(k);">x</span>
+		</li>
+	</ul>
+	<button class="button close_all" ng-click="close_tab_all();"><span class="glyphicon glyphicon-remove"></span></button>
+</div>

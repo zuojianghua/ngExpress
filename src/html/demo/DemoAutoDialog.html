@@ -1,0 +1,9 @@
+<h3>{{dialog_title}}</h3>
+<table class="table">
+    <thead>
+        <tr><th>键名</th><th>执行结果</th></tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="(k,v) in result"><td>{{k}}</td><td>{{v|checkmark}}</td></tr>
+    </tbody>
+</table>

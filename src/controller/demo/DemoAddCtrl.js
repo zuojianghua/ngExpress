@@ -1,57 +1,46 @@
 /**
- * 新增样例页面控制器
- * @author zuojianghua<28842136@qq.com>
- * @date 2016-08-10
+ * 新增控制器
  */
-var DemoAddCtrl = ['$rootScope', '$scope', '$location', '$window',
-    function ($rootScope, $scope, $location, $window) {
-        $rootScope.nav = 'n0';           //一级菜单标识
-        $rootScope.menu = 'm01';           //二级菜单标识
-        $rootScope.subMenu = 's03';        //三级菜单标识
-        $rootScope.url = '/demo/add';     //本页url地址
-
-        if (!$rootScope.histroy.hasOwnProperty('/demo/add')) {
-            //Tab标签的顺序
-            var order = Object.keys($rootScope.histroy);
-            //本页面scope内的属性定义在此
-            $scope.data = {
-                title: '新增表单页',
-                content: '',
-                form: {
-                    dianyuan_code: '001',
-                    dianyuan_name: '张三',
-                    first_day : '2016-10-10'
+var DemoAddCtrl = ['$rootScope', '$scope', '$location', '$window', 'api', 'valid',
+    function ($rootScope, $scope, $location, $window, api, valid) {
+        //本页面的各种属性数据
+        var data = {
+            'title': '示例新增',
+            'form_data': {
+                'address_array': {}
+            }
+        };
+        $scope.data = $scope.construct(data, 'demo/add');
+        //标题栏按钮动作 ===============================================
+        $scope.title_data = [
+            { 'ico': 'glyphicon-th-list', 'name': '列表', 'click': () => { $location.path('/demo/index') } }
+        ];
+        //表单按钮动作 =================================================
+        $scope.form_save = function () {
+            var ret = valid.check([
+                { 'key': 'customer_name', 'valid': 'check_required', 'data': $scope.data.form_data.customer_name, 'tip': '顾客名称必填' },
+                { 'key': 'customer_tel', 'valid': 'check_required', 'data': $scope.data.form_data.customer_tel, 'tip': '顾客手机号必填' },
+                { 'key': 'org_code', 'valid': 'check_required', 'data': $scope.data.form_data.org_code, 'tip': '渠道必填' },
+                { 'key': 'shop_code', 'valid': 'check_required', 'data': $scope.data.form_data.shop_code, 'tip': '店铺必填' }
+            ]);
+            $scope.valid = ret.data;
+            if (!ret.status) {
+                //alert('表单验证失败');
+                return;
+            }
+            api.request('demo/add', { 'form_data': $scope.data.form_data }).then(function (result) {
+                if(false!==result){
+                    $location.path('/demo/index');
                 }
+            });
+        }
+
+        $scope.form_cancel = function () {
+            $scope.data.form_data = {
+                'address_array': {}
             };
-            //纳入到tab历史中
-            $rootScope.histroy['/demo/add'] = {
-                scope: $scope
-            };
-        } else {
-            $scope.data = $rootScope.histroy['/demo/add'].scope.data;
-            var order = $rootScope.histroy['/demo/add'].order;
         }
-
-        //获取店员信息
-        $scope.get_dianyuan_data = function () {
-            return [
-                { 'code': '001', 'name': '张三' },
-                { 'code': '002', 'name': '李四' },
-                { 'code': '003', 'name': '王五' }
-            ];
-        }
-
-        //保存表单
-        $scope.save_form = function () {
-            console.log($scope.data.form);
-        }
-
-        
-        
-
-        
-
 
     }];
 
-DemoAddCtrl.$injector = ['$rootScope', '$scope', '$location', '$window'];
+DemoAddCtrl.$injector = ['$rootScope', '$scope', '$location', '$window', 'api', 'valid'];

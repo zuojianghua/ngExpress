@@ -1,0 +1,191 @@
+<div class="panel_title_wrap" ng-include="'src/html/component/ComponentTitle.html'"></div>
+<!--搜索区域-->
+<div class="panel_cont">
+    <div ng-repeat="ul in data.form_data.ctrl_array track by $index">
+	<ul class="search_terms">
+		<li>
+            <label class="name">路由名称{{$index}}<em>*</em></label>
+            <input type="text" class="form-control" placeholder=""  ng-model="ul.ctrl_name" ng-change="generate_path();" />
+        </li>
+
+        <li>
+            <label class="name">标题{{$index}}<em>*</em></label>
+            <input type="text" class="form-control" placeholder=""  ng-model="ul.ctrl_title" ng-change="generate_path();" />
+        </li>
+
+        <li>
+            <label class="name">接口{{$index}}<em>*</em></label>
+            <div class="input-group">
+            <input type="text" class="form-control" placeholder=""  ng-model="ul.ctrl_api" />
+            <span class="input-group-btn btn-group-sm">
+                <button class="btn btn-default" type="button" ng-click="get_api(ul);"><span class="glyphicon glyphicon-ok"></span> 验证接口</button>
+            </span>
+            </div>
+        </li>
+
+        <li>
+            <label class="name">控制器类型</label>
+            <select class="form-control" ng-model="ul.ctrl_type" >
+                <option value="list" >列表页</option>
+                <option value="add" >新增页</option>
+                <option value="view" >查看编辑页</option>
+            </select>
+        </li>
+
+        <li ng-show="ul.ctrl_type=='list'||ul.ctrl_type=='add'">
+            <label class="name">搜索/输入区域项</label>
+            <input type="text" class="form-control" placeholder="随便敲几个字符试试看"  ng-model="ul.search_fields_num" />
+        </li>
+
+        
+        <li class="li_col_3">
+            <label class="name">控制器文件路径</label>
+            <input type="text" style="width:500px;" class="form-control" readonly ng-class="valid.ctrl_path" ng-model="ul.ctrl_path"  />
+        </li>
+
+        <li class="li_col_3">
+            <label class="name">模板文件路径</label>
+            <input type="text" style="width:500px;" class="form-control" readonly ng-class="valid.html_path" ng-model="ul.html_path"  />
+        </li>
+	</ul>
+
+    <!--######################列表页设置#############################-->
+    <!--搜索区域设置-->
+    <table class="table" ng-show="ul.ctrl_type=='list'">
+        <thead>
+            <tr>
+                <th>排序(越小越<br>前,不填无效)</th>
+                <th>搜索字段label</th>
+                <th>搜索字段key</th>
+                <th>输入框类型</th>
+                <th>额外参数</th>
+                <th>是否自动隐藏</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="i in ul.search_fields_num track by $index">
+                <td><input type="text" ng-model="ul.search_fields[$index].orders" style="width:50px;" /></td>
+                <!--<td><input type="checkbox" ng-model="ul.search_fields[$index].status" /></td>-->
+                <td><input type="text" ng-model="ul.search_fields[$index].label" /></td>
+                <td><input type="text" ng-model="ul.search_fields[$index].keyword" /></td>
+                <td>
+                    <select ng-model="ul.search_fields[$index].type" >
+                        <option value="text">普通输入框</option>
+                        <option value="select">枚举下拉输入框</option>
+                        <option value="selectSimple">动态下拉输入框</option>
+                        <option value="selectSingle">弹出式单选框</option>
+                        <option value="selectMulti">弹出式多选框</option>
+                        <option value="selectDate">单日历控件</option>
+                        <option value="selectDateDouble">双日历控件</option>
+                    </select>
+                </td>
+                <td>
+                    <select ng-model="ul.search_fields[$index].extend" ng-show="ul.search_fields[$index].type=='selectSimple'||ul.search_fields[$index].type=='selectSingle'||ul.search_fields[$index].type=='selectMulti'">
+                        <option value="">请选择</option>
+                        <option ng-repeat="(k,s) in search_data_select" value="{{k}}">{{s}}</option>
+                    </select>
+                    <select ng-model="ul.search_fields[$index].extend" ng-show="ul.search_fields[$index].type=='select'">
+                        <option value="">请选择</option>
+                        <option ng-repeat="(k,s) in search_data_option" value="{{k}}">{{k}}</option>
+                    </select>
+                </td>
+                <td><input type="checkbox" ng-model="ul.search_fields[$index].hide" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--表头区域设置-->
+    <table class="table" ng-show="ul.ctrl_type=='list'">
+        <thead>
+            <tr>
+                <th>排序(越小越<br>前,不填无效)</th>
+                <th>表头名</th>
+                <th>表头值</th>
+                <th>是否可隐藏</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="li in ul.table_fields track by $index">
+                <td><input type="text" ng-model="li.orders" style="width:50px;" /></td>
+                <td><input type="text" ng-model="li.label" /></td>
+                <td><input type="text" ng-model="li.keyword" readonly  style="width:250px;" /></td>
+                <td><input type="checkbox" ng-model="li.hide" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--######################新增页设置#############################-->
+    <!--输入域设置-->
+    <table class="table" ng-show="ul.ctrl_type=='add'">
+        <thead>
+            <tr>
+                <th>排序(越小越<br>前,不填无效)</th>
+                <th>字段label</th>
+                <th>字段key</th>
+                <th>输入框类型</th>
+                <th>额外参数</th>
+                <th>是否必填</th>
+                <th>其他验证</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="i in ul.search_fields_num track by $index">
+                <td><input type="text" ng-model="ul.form_fields[$index].orders" style="width:50px;" /></td>
+                <td><input type="text" ng-model="ul.form_fields[$index].label" /></td>
+                <td><input type="text" ng-model="ul.form_fields[$index].keyword" /></td>
+                <td>
+                    <select ng-model="ul.form_fields[$index].type" >
+                        <option value="text">普通输入框</option>
+                        <option value="select">枚举下拉输入框</option>
+                        <option value="selectSimple">动态下拉输入框</option>
+                        <option value="selectSingle">弹出式单选框</option>
+                        <option value="selectMulti">弹出式多选框</option>
+                        <option value="selectDate">单日历控件</option>
+                        <option value="selectDateDouble">双日历控件</option>
+                    </select>
+                </td>
+                <td>
+                    <select ng-model="ul.form_fields[$index].extend" ng-show="ul.form_fields[$index].type=='selectSimple'||ul.form_fields[$index].type=='selectSingle'||ul.form_fields[$index].type=='selectMulti'">
+                        <option value="">请选择</option>
+                        <option ng-repeat="(k,s) in search_data_select" value="{{k}}">{{s}}</option>
+                    </select>
+                    <select ng-model="ul.form_fields[$index].extend" ng-show="ul.form_fields[$index].type=='select'">
+                        <option value="">请选择</option>
+                        <option ng-repeat="(k,s) in search_data_option" value="{{k}}">{{k}}</option>
+                    </select>
+                </td>
+                <td><input type="checkbox" ng-model="ul.form_fields[$index].req" /></td>
+                <td>
+                    <select ng-model="ul.form_fields[$index].valid">
+                        <option value="">请选择</option>
+                        <option ng-repeat="(k,s) in data.valid_option" value="{{k}}">{{s}}</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    </div>
+
+
+
+    <ul class="search_terms">
+        <li>
+            <label class="name">index.html引用代码</label>
+        </li>
+        <textarea style="width:800px;height:200px;">{{data.form_data.html_script}}</textarea>
+    </ul>
+
+    <ul class="search_terms">
+        <li>
+            <label class="name">app.js引用代码</label>  
+        </li>
+        <textarea style="width:800px;height:200px;">{{data.form_data.app_script}}</textarea>
+    </ul>
+
+	<div class="btn_wrap">
+        <button class="button emphasize" ng-click="form_save();">保存</button>
+        <button class="button" ng-click="form_cancel();">取消</button>
+    </div>
+</div>

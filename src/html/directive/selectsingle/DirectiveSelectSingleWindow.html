@@ -1,6 +1,13 @@
-<h4>{{inputTitle}}</h4>
-<ul>
-    <li ng-repeat="li in list track by $index">
-        <a href="javascript:void(0);" ng-click="set_value(li);" >{{li.name}} --- {{li.code}}</a>
-    </li>
-</ul>
+<h2 class="pop_title">{{inputTitle}}</h2>
+<div class="pop_cont">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="关键词" ng-model="search_data.keyword">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="form_search();"><span class="glyphicon glyphicon-search"></span></button>
+      </span>
+    </div>
+    <table class="date_table">
+        <tr ng-repeat="li in list_data track by $index" ng-click="set_value(li);"><th>{{li.name}}</th><td>{{li.code}}</td></tr>
+    </table>
+    <pager page-data="page_data" page-func="form_search"></pager>
+</div>

@@ -1,0 +1,13 @@
+<h2 class="pop_title">设置表格头</h2>
+<div class="pop_cont">
+  <!--显示列表-->
+  <table class="table date_table">
+    <tr ng-class="{true:'success',false:''}[li.value]" ng-repeat="li in fields_set track by $index">
+      <th><label for="field_set_{{li.key}}">{{li.name}}</label></th>
+      <td><input id="field_set_{{li.key}}" type="checkbox" ng-model="li.value"></td>
+    </tr>
+  </table>
+</div>
+<div class="btn_wrap">
+  <button class="button emphasize" ng-click="save_fields_set();">保存设置</button>
+</div>

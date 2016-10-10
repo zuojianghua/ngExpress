@@ -3,10 +3,12 @@ myDirective.directive("selectDate", function () {
         restrict: 'E',
         scope: {
             inputValue: '=',    //输入框中的日期
-            inputTitle: '@'     //弹框的标题
+            inputTitle: '@',    //弹框的标题
+            inputReadonly: '=', //只读开关:true只读, false可编辑
+            inputFormat: '@'    //输入的日期格式
         },
-        templateUrl: '/html/directive/selectdate/DirectiveSelectDate.html',
-        controller: ['$scope', '$element', 'ngDialog', function ($scope, $element, ngDialog) {
+        templateUrl: 'html/directive/selectdate/DirectiveSelectDate.html',
+        controller: ['$scope', '$element', 'ngDialog', function ($scope, $element, ngDialog) {            
             //日历控件点击事件
             $scope.alertOnEventClick = function (date, jsEvent, view) {
                 //console.log(date.format());
@@ -17,7 +19,7 @@ myDirective.directive("selectDate", function () {
             $scope.eventSources = [];
             $scope.uiConfig = {
                 calendar: {
-                    height: 450,
+                    height: 520,
                     editable: true,
                     header: {
                         left: 'title',
@@ -41,7 +43,11 @@ myDirective.directive("selectDate", function () {
             //打开日历选择器窗口
             var open_select_window_id = 0;
             $scope.open_select_window = function () {
-                if ($scope.inputValue != undefined && $scope.inputValue != '') {
+                if($scope.inputReadonly){
+                    return;
+                }
+
+                if ($scope.inputValue != undefined && $scope.inputValue != '' && $scope.inputValue!='0000-00-00 00:00:00' && $scope.inputValue!='0000-00-00') {
                     $scope.uiConfig.calendar.defaultDate = $scope.inputValue;
                     $scope.uiConfig.calendar.events = [{
                         'title': '已选',
@@ -52,11 +58,11 @@ myDirective.directive("selectDate", function () {
 
                 open_select_window_id = ngDialog.open({
                     overlay: true,
-                    disableAnimation: true,
+                    disableAnimation: '',
                     showClose: true,
-                    width: 450,
-                    height: 450,
-                    template: '/html/directive/selectdate/DirectiveSelectDateWindow.html',
+                    width: '',
+                    height: '',
+                    template: 'html/directive/selectdate/DirectiveSelectDateWindow.html',
                     scope: $scope
                 });
             }

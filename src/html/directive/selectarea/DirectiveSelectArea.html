@@ -1,0 +1,3 @@
+<select class="" ng-model="select1" ng-change="change1();" ng-options="x.region_name for x in area_data" ng-readonly="inputReadonly" ng-disabled="inputReadonly" ></select>
+<select class="" ng-model="select2" ng-change="change2();" ng-options="x.region_name for x in select1.child" ng-readonly="inputReadonly" ng-disabled="inputReadonly" ></select>
+<select class="" ng-model="select3" ng-change="change3();" ng-options="x.region_name for x in select2.child" ng-readonly="inputReadonly" ng-disabled="inputReadonly" ></select>

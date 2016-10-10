@@ -1,9 +1,13 @@
-angular.module('myApp', [
+var myApp = angular.module('myApp', [
     'ngRoute',
     'ngDialog',
     'myService',
     'myDirective',
-    'ui.calendar'
+    'myFilters',
+    'ui.calendar',
+    'color.picker',
+    'textAngular',
+    'ngFileUpload'
 ])
     .controller('IndexMainCtrl', IndexMainCtrl)
     .controller('ComponentNavCtrl', ComponentNavCtrl)
@@ -14,9 +18,12 @@ angular.module('myApp', [
         $routeProvider
             
             .when('/dashboard', { templateUrl: 'html/index/IndexDashboard.html', controller: IndexDashboardCtrl })
-            .when('/demo/list', { templateUrl: 'html/demo/DemoList.html', controller: DemoListCtrl })
+            
+        	.when('/demo/list', { templateUrl: 'html/demo/DemoList.html', controller: DemoListCtrl })
             .when('/demo/add', { templateUrl: 'html/demo/DemoAdd.html', controller: DemoAddCtrl })
-            //.when('/demo/view', { templateUrl: 'html/demo/DemoView.html', controller: DemoViewCtrl })
+            .when('/demo/view', { templateUrl: 'html/demo/DemoView.html', controller: DemoViewCtrl })
+            .when('/demo/auto', { templateUrl: 'html/demo/DemoAuto.html', controller: DemoAutoCtrl })
+
             .otherwise({ redirectTo: '/dashboard' });
 
         //HTTP异步设置 =============================================

@@ -7,12 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>标题</title>
 
-    <link rel="stylesheet" href="static/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="static/ng-dialog/css/ngDialog.min.css">
-    <link rel="stylesheet" href="static/ng-dialog/css/ngDialog-theme-default.min.css">
-    <link rel="stylesheet" href="static/ng-dialog/css/ngDialog-theme-plain.min.css">
-    <link rel="stylesheet" href="static/fullcalendar/dist/fullcalendar.css"/>
+    <link rel="stylesheet" type="text/css" href="static/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="static/bootstrap/dist/css/bootstrap-theme.min.css">-->
+    <link rel="stylesheet" type="text/css" href="static/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" type="text/css" href="static/ng-dialog/css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" type="text/css" href="static/ng-dialog/css/ngDialog-theme-plain.min.css">
+    <link rel="stylesheet" type="text/css" href="static/fullcalendar/dist/fullcalendar.css" />
+    <link rel="stylesheet" type="text/css" href="static/angular-color-picker/dist/angularjs-color-picker.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/angular-color-picker/dist/themes/angularjs-color-picker-bootstrap.min.css" />
+    <link rel='stylesheet' type="text/css" href='static/textAngular/dist/textAngular.css'>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 
 
     <script type="text/javascript" src="static/jquery/dist/jquery.min.js"></script>
@@ -26,9 +32,24 @@
     <script type="text/javascript" src="static/angular-ui-calendar/src/calendar.js"></script>
     <script type="text/javascript" src="static/fullcalendar/dist/fullcalendar.min.js"></script>
     <script type="text/javascript" src="static/fullcalendar/dist/gcal.js"></script>
+    <script type="text/javascript" src="static/tinycolor/dist/tinycolor-min.js"></script>
+    <script type="text/javascript" src="static/angular-color-picker/dist/angularjs-color-picker.min.js"></script>
+    <script type="text/javascript" src='static/textAngular/dist/textAngular-rangy.min.js'></script>
+    <script type="text/javascript" src='static/textAngular/dist/textAngular-sanitize.min.js'></script>
+    <script type="text/javascript" src='static/textAngular/dist/textAngular.min.js'></script>
+    <script type="text/javascript" src='static/ng-file-upload/ng-file-upload.min.js'></script>
 
     <script src="directive/SelectSingle.js"></script>
+    <script src="directive/SelectSingleBtn.js"></script>
+    <script src="directive/SelectMulti.js"></script>
+    <script src="directive/SelectSimple.js"></script>
     <script src="directive/SelectDate.js"></script>
+    <script src="directive/SelectArea.js"></script>
+    <script src="directive/TableSimple.js"></script>
+    <script src="directive/CategoryList.js"></script>
+    <script src="directive/CategorygoodsList.js"></script>
+    <script src="directive/UploadPicture.js"></script>
+    <script src="directive/Pager.js"></script>
 
     <script src="controller/component/ComponentMenuCtrl.js"></script>
     <script src="controller/component/ComponentNavCtrl.js"></script>
@@ -40,20 +61,25 @@
     <script src="controller/demo/DemoListCtrl.js"></script>
     <script src="controller/demo/DemoAddCtrl.js"></script>
     <script src="controller/demo/DemoViewCtrl.js"></script>
+    <script src="controller/demo/DemoAutoCtrl.js"></script>
 
+    <script src="script/util.js"></script>
     <script src="script/app.js"></script>
     <script src="script/service.js"></script>
+    <script src="script/filter.js"></script>
 </head>
 
 <body ng-controller="IndexMainCtrl">
-    <div>
-        <div ng-include="'html/component/ComponentNav.html'" ng-controller="ComponentNavCtrl"></div>
-        <div class="row">
-            <div class="col-md-2" ng-controller="ComponentMenuCtrl" ng-include="'html/component/ComponentMenu.html'"></div>
-            <div class="col-md-10">
-                <ul class="nav nav-tabs" ng-controller="ComponentTabCtrl" ng-include="'html/component/ComponentTab.html'"></ul>
-                <div class="main_wrap" ng-view></div>
-            </div>
+    <div class="page">
+        <div class="sidebar" ng-class="{true:'shrink',false:''}[shrink]" ng-controller="ComponentMenuCtrl" ng-include="'html/component/ComponentMenu.html'"></div>
+        <div class="content" ng-class="{true:'stretch',false:''}[stretch]">
+            <div class="top" ng-include="'html/component/ComponentNav.html'" ng-controller="ComponentNavCtrl"></div>
+            <div class="tab" ng-controller="ComponentTabCtrl" ng-include="'html/component/ComponentTab.html'"></div>
+            <div class="main_wrap">
+                <div class="main_box">
+                    <div class="main" ng-view>加载中...</div>
+                </div>
+            </div> 
         </div>
     </div>
 </body>

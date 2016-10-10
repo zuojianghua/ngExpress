@@ -1,0 +1,21 @@
+<h3>{{dialog_title}}</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>控制器</th>
+            <th>JS控制器生成结果</th>
+            <th>说明</th>
+            <th>HTML生成结果</th>
+            <th>说明</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="(k,v) in result">
+            <td>{{k}}</td>
+            <td>{{v['js'][0]|checkmark}}</td>
+            <td>{{v['js'][1]}}</td>
+            <td>{{v['html'][0]|checkmark}}</td>
+            <td>{{v['html'][1]}}</td>
+        </tr>
+    </tbody>
+</table>

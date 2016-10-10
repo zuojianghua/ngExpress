@@ -18,7 +18,7 @@ gulp.task('jshint', function () {
 //代码合并压缩
 gulp.task('minifyjs', function () {
     return gulp.src(['../src/controller/**/*.js','../src/directive/**/*.js'])      //需要操作的文件
-        .pipe(concat('icrm.js'))           //合并所有js到main.js
+        .pipe(concat('app.js'))           //合并所有js到main.js
         .pipe(gulp.dest('../dist'))        //输出到文件夹
         .pipe(rename({ suffix: '.min' }))  //rename压缩后的文件名
         .pipe(uglify())                    //压缩

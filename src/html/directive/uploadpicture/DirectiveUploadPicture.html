@@ -1,0 +1,17 @@
+<div class="input-group">
+    <input type="text" class="form-control" readonly value="{{inputName}}" ngf-select="file_select($file)" />
+    <div class="input-group-btn btn-group-sm">
+        <button ng-show="switch" class="btn btn-default" type="button" ng-disabled="false" ng-click="upload_file();" title="上传选中图片">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+        </button>
+        <button ng-hide="switch" class="btn btn-default" type="button" ng-disabled="false" ng-click="preview_pic();" title="查看当前图片">
+            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        </button>
+        <button class="btn btn-default" type="button" ng-disabled="false" ng-click="refresh_input_data();" title="还原默认图片">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        </button>
+        <button class="btn btn-default" type="button" ng-disabled="false" ng-click="clear_input_data();" title="删除当前图片">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button>
+    </div>
+</div>

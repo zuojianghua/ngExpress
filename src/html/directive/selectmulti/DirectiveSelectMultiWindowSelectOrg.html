@@ -1,0 +1,38 @@
+<h2 class="pop_title">{{inputTitle}}</h2>
+<div class="pop_cont">
+  <div class="col-md-3">
+    <category-list list-title="上级渠道" list-value="mutile.category_data" list-default-show="mutile.category_data_show" item-click="mutile.category_click"></category-list>
+  </div>
+  <div class="col-md-9">
+    <!--查询条件-->
+    <div class="col-md-3">
+      <select class="form-control" ng-model="search_data.status">
+        <option value="0">启用</option>
+        <option value="1">停用</option>
+        <option value="">全部</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="关键词" ng-model="search_data.keyword">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="form_search();"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div>
+    </div>
+    <!--显示列表-->
+    <table class="table date_table">
+      <tr ng-class="{true:'success',false:''}[checkbox_value[li.code]]" ng-repeat="li in list_data track by $index">
+        <th><input type="checkbox" name="checkbox_value" ng-model="checkbox_value[li.code]" ng-click="update_check(li);"></th>
+        <th>{{li.name}}</th>
+        <th>{{li.code}}</th>
+      </tr>
+    </table>
+  </div>
+  <pager page-data="page_data" page-func="form_search"></pager>
+</div>
+<div class="btn_wrap">
+  <button class="button" ng-click="check_all();">全选</button>
+  <button class="button" ng-click="check_cancel_all();">取消全选</button>
+  <button class="button emphasize" ng-click="set_value();">确定</button>
+</div>

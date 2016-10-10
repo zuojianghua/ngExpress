@@ -1,0 +1,39 @@
+<ul class="list-group list-group-diy">
+    <div class="p_c_group">
+        <a class="list-group-item" href="javascript:void(0);" ng-click="listDefaultShow=!listDefaultShow;"><i class="glyphicon" ng-class="listDefaultShow?'glyphicon-minus':'glyphicon-plus'"></i> {{listTitle}}<span class="badge">{{listValue.length}}</span></a>
+        
+        <div class="child_box" ng-show="listDefaultShow">
+            <div class="p_c_group" ng-repeat="li1 in listValue">
+                <a class="list-group-item" href="javascript:void(0);">
+                    <i class="glyphicon" ng-class="li1.hide?'glyphicon-plus':'glyphicon-minus'" ng-if="li1.child&&li1.child.length>0" ng-click="li1.hide=!li1.hide"></i>
+                    <span ng-click="click(li1);"> {{li1.name}}</span>
+                    <span class="badge" ng-if="li1.child&&li1.child.length>0" >{{li1.child.length}}</span>
+                </a>
+                <div class="child_box" ng-if="li1.child&&li1.child.length>0" ng-hide="li1.hide">
+                    <div class="p_c_group" ng-repeat="li2 in li1.child">
+                        <a class="list-group-item" href="javascript:void(0);">
+                            <i class="glyphicon" ng-class="li2.hide?'glyphicon-plus':'glyphicon-minus'" ng-if="li2.child&&li2.child.length>0" ng-click="li2.hide=!li2.hide"></i>
+                            <span ng-click="click(li2);"> {{li2.name}}</span>
+                            <span class="badge" ng-if="li2.child&&li2.child.length>0" >{{li2.child.length}}</span>
+                        </a>
+                        <div class="child_box" ng-if="li2.child&&li2.child.length>0" ng-hide="li2.hide">
+                           <div class="p_c_group" ng-repeat="li3 in li2.child">
+                                <a class="list-group-item" href="javascript:void(0);">
+                                    <i class="glyphicon" ng-class="li3.hide?'glyphicon-plus':'glyphicon-minus'" ng-if="li3.child&&li3.child.length>0" ng-click="li3.hide=!li3.hide"></i>
+                                    <span ng-click="click(li3);"> {{li3.name}}</span>
+                                    <span class="badge" ng-if="li3.child&&li3.child.length>0" >{{li3.child.length}}</span>
+                                </a>
+                                <div class="child_box" ng-if="li3.child&&li3.child.length>0" ng-hide="li3.hide">
+                                    <div class="p_c_group" ng-repeat="li4 in li3.child">
+                                        <a class="list-group-item" href="javascript:void(0);"><span ng-click="click(li4);">{{li4.name}}</span></a>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ul>

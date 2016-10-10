@@ -1,8 +1,8 @@
 <div class="input-group">
-    <input type="text" class="form-control" readonly ng-model="inputValue" ng-click="open_select_window();" />
-    <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="open_select_window();">
+    <input type="text" class="calendar form-control" readonly ng-model="inputValue" ng-click="open_select_window();" />
+    <div class="input-group-btn btn-group-sm">
+        <button class="btn btn-default" type="button" ng-disabled="inputReadonly" ng-click="open_select_window();">
             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
         </button>
-    </span>
+    </div>
 </div>

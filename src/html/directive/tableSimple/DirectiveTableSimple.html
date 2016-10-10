@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <tr>
+            <th ng-repeat="th in tableHead track by $index">{{th.name}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tr in tableBody track by $index">
+            <td ng-repeat="td in tableHead track by $index">
+                {{tr[td.field]}}
+            </td>
+        </tr>
+    </tbody>
+</table>

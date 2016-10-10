@@ -1,151 +1,53 @@
-<div ng-include="'/html/component/ComponentTitle.html'"></div>
+<div class="panel_title_wrap" ng-include="'html/component/ComponentTitle.html'"></div>
 
-<table class="form-horizontal" ng-hide="0">
-    <tr>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">关键词</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="顾客代码或姓名">
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">渠道</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="" ng-model="data.filter_data.qudao">
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">店铺</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="">
-                </div>
-            </div>
-        </td>
-
-    </tr>
-
-    <tr>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">来源</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="">
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">店员</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="">
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">性别</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="">
-                </div>
-            </div>
-        </td>
-
-    </tr>
-
-    <tr>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">手机</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="顾客代码或姓名">
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">年龄</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="">
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class="form-group">
-                <label for="" class="col-sm-4 control-label">顾客等级</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="" placeholder="">
-                </div>
-            </div>
-        </td>
-
-    </tr>
-</table>
-
-<hr>
-
-<table class="table table-condensed table-striped">
-    <thead>
-        <tr>
-            <th>顾客代码</th>
-            <th>姓名</th>
-            <th>渠道</th>
-            <th>店铺</th>
-            <th>性别</th>
-            <th>生日</th>
-            <th>年龄</th>
-            <th>顾客等级</th>
-            <th>手机</th>
-            <th>积分</th>
-            <th>消费总额</th>
-            <th>最近消费日</th>
-            <th>操作</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="li in data.list_data track by $index">
-            <td>{{li.custom_code}}</td>
-            <td>{{li.custom_name}}</td>
-            <td>{{li.org_code}}</td>
-            <td>{{li.shop_name}}</td>
-            <td>{{li.sex}}</td>
-            <td>{{li.berth_day}}</td>
-            <td>{{li.age}}</td>
-            <td>{{li.custom_level_name}}</td>
-            <td>{{li.tel}}</td>
-            <td>{{li.interg}}</td>
-            <td>{{li.money}}</td>
-            <td>{{li.last_day}}</td>
-            <td>
-                <a type="button" class="btn btn-xs btn-primary">查看</a>
-                <button type="button" class="btn btn-xs btn-primary">重置密码</button>
-                <button type="button" class="btn btn-xs btn-primary">变更手机</button>
-                <button type="button" class="btn btn-xs btn-primary">发卡</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-<nav>
-    <ul class="pagination">
+<!--搜索区域-->
+<div class="panel_cont">
+    <ul class="search_terms">
         <li>
-            <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
+            <label class="name">关键词</label>
+            <input type="text" class="form-control" placeholder="代码或名称" ng-model="data.search_data.keyword" />
         </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
         <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
+            <label class="name">简单选择</label>
+            <select-simple input-value="data.search_data.crm_series_code" input-select="select_vip_series"></select-simple>
         </li>
     </ul>
-</nav>
+    <div class="btn_wrap"><button class="button emphasize" ng-click="form_search();">搜索</button><button class="button" ng-click="form_clear();">清空</button></div>
+</div>
+<!--列表区域-->
+<div class="result_wrap">
+    <table class="result_table">
+        <thead>
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>标题1</th>
+                <th>标题2</th>
+                <th>标题3</th>
+                <th>标题4</th>
+                <th>标题5</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="td in data.list_data track by $index">
+                <td>{{td.level_code}}</td>
+                <td>{{td.level_name}}</td>
+                <td>{{td.crm_series_code}}</td>
+                <td>{{td.sql_order}}</td>
+                <td>{{td.rebate}}</td>
+                <td>{{td.expiry_year}}</td>
+                <td>{{td.expiry_month}}</td>
+                <td>{{td.status|checkmark}}</td>
+                <td>
+                    <button ng-click="goto('/crm/vip_level/show/'+td.vip_level_id);">查看</button>
+                    <button ng-show="td.status==0" ng-click="list_del(td.vip_level_id);">删除</button>
+                    <button ng-show="td.status==0" ng-click="list_start(td.vip_level_id);">启用</button>
+                    <button ng-show="td.status==1" ng-click="list_stop(td.vip_level_id);">停用</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>   
+    <pager page-data="data.page_data"  page-func="form_search"></pager>
+</div>

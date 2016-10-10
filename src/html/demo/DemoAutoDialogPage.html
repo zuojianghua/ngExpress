@@ -1,0 +1,23 @@
+<h3>{{dialog_title}}  过滤器: 
+    <label><input type="radio" ng-model="f" ng-value="{}" /> 全部</label>
+    <label><input type="radio" ng-model="f" ng-value="{'ctrl_status':'false','api_status':'true'}"  /> 可做</label>
+    <label><input type="radio" ng-model="f" ng-value="{'api_status':'false'}"  /> 缺接口</label>
+    <label><input type="radio" ng-model="f" ng-value="{'ctrl_status':'true'}"  /> 已做</label>
+    <input type="text" ng-model=""
+</h3>
+<hr>
+<table class="table">
+    <thead>
+        <tr><th></th><th>页面</th><th>控制器</th><th>有</th><th>接口</th><th>有</th></tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="p in result | filter:f track by $index " ng-class="{'success':(p.ctrl_status==true),'danger':(p.api_status==false)}">
+            <td>{{$index}}</td>
+            <td><a href="javascript:void(0);" ng-click="click_ctrl(p);">{{p.title}}</a></td>
+            <td>{{p.ctrl}}</td>
+            <td>{{p.ctrl_status|checkmark}}</td>
+            <td>{{p.api}}</td>
+            <td>{{p.api_status|checkmark}}</td>
+        </tr>
+    </tbody>
+</table>

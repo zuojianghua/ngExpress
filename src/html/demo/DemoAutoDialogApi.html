@@ -1,0 +1,9 @@
+<h3>{{dialog_title}}</h3>
+<table class="table table-hover">
+    <thead>
+        <tr><th>键名</th><th>执行结果</th></tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="(k,v) in result" ng-class="{true:'success',false:'danger'}[v]"><td>{{k}}</td><td>{{v|checkmark}}</td></tr>
+    </tbody>
+</table>
