@@ -18,7 +18,8 @@
   "homepage": "https://github.com/zuojianghua/ngExpress#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "forever": "^0.15.1"
+    "forever": "^0.15.1",
+    "map-stream": "0.0.6"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

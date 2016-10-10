@@ -5,6 +5,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     jshint = require('gulp-jshint');
+var map = require('map-stream');
+var fs = require('fs');
 
 //代码检查
 gulp.task('jshint', function () {
@@ -52,11 +54,23 @@ gulp.task('default', ['jshint'], function () {
 // 　　});
 
 
-
-
-//仅仅检查，输出结果到控制台
+//自定义文件报告
+var myReporter = map(function (file, cb) {
+  if (!file.jshint.success) {
+    fs.appendFileSync('check_result.txt', '\n[' + new Date().toLocaleString() + '] Error in ' + file.path + ' ' + '\n');
+    file.jshint.results.forEach(function (err) {
+      if (err) {
+        var logtxt = ' # line ' + err.error.line + ', col ' + err.error.character + ', code ' + err.error.code + ', ' + err.error.reason + '\n';
+        fs.appendFileSync('check_result.txt', logtxt);
+      }
+    });
+  }
+  cb(null, file);
+});
+//仅仅检查，输出结果到文件
 gulp.task('check', function () {
     return gulp.src(['../src/controller/**/*.js','../src/directive/**/*.js'])
         .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter())
+        .pipe(myReporter);
 });
