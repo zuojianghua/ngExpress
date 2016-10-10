@@ -1,4 +1,4 @@
-myDirective.directive("uploadPicture", function () {
+angular.module("myDirective").directive("uploadPicture", function () {
     return {
         restrict: 'E',
         scope: {

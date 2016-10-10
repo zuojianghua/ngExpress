@@ -355,8 +355,8 @@ var DemoAutoCtrl = ['$rootScope', '$scope', '$location', '$window', 'api', '$htt
         }
 
         $scope.title_data = [
-            { 'ico': 'glyphicon-refresh', 'name': '获取API演示数据', 'click': () => { $scope.get_api_data() } },
-            { 'ico': 'glyphicon-th-list', 'name': '查看全部页面', 'click': () => { $scope.show_all_pages() } }
+            { 'ico': 'glyphicon-refresh', 'name': '获取API演示数据', 'click': function() { $scope.get_api_data() } },
+            { 'ico': 'glyphicon-th-list', 'name': '查看全部页面', 'click': function() { $scope.show_all_pages() } }
         ];
 
 

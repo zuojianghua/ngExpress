@@ -13,7 +13,7 @@ var DemoAddCtrl = ['$rootScope', '$scope', '$location', '$window', 'api', 'valid
         $scope.data = $scope.construct(data, 'demo/add');
         //标题栏按钮动作 ===============================================
         $scope.title_data = [
-            { 'ico': 'glyphicon-th-list', 'name': '列表', 'click': () => { $location.path('/demo/index') } }
+            { 'ico': 'glyphicon-th-list', 'name': '列表', 'click': function(){ $location.path('/demo/index') } }
         ];
         //表单按钮动作 =================================================
         $scope.form_save = function () {

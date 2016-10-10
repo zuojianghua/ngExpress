@@ -1,4 +1,4 @@
-myDirective.directive("categorygoodsList", function () {
+angular.module("myDirective").directive("categorygoodsList", function () {
     return {
         restrict: 'E',
         scope: {

@@ -1,4 +1,4 @@
-myDirective.directive("pager", function () {
+angular.module("myDirective").directive("pager", function () {
     return {
         restrict: 'E',
         scope: {

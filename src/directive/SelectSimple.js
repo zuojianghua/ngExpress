@@ -1,4 +1,4 @@
-myDirective.directive("selectSimple", function () {
+angular.module("myDirective").directive("selectSimple", function () {
     return {
         restrict: 'E',
         scope: {

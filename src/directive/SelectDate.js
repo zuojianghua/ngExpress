@@ -1,4 +1,4 @@
-myDirective.directive("selectDate", function () {
+angular.module("myDirective").directive("selectDate", function () {
     return {
         restrict: 'E',
         scope: {
@@ -60,7 +60,7 @@ myDirective.directive("selectDate", function () {
                     overlay: true,
                     disableAnimation: '',
                     showClose: true,
-                    width: '',
+                    width: 500,
                     height: '',
                     template: 'html/directive/selectdate/DirectiveSelectDateWindow.html',
                     scope: $scope

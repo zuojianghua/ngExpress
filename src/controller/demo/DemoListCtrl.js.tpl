@@ -75,9 +75,9 @@ var {{$class_name}} = ['$rootScope', '$scope', '$location', '$window', 'api',
         }
 
         $scope.title_data = [
-            { 'ico': 'glyphicon-plus', 'name': '新增', 'click': () => { $location.path('/to/your/path') } },
-            { 'ico': 'glyphicon-chevron-down', 'name': '展开和收缩更多查询条件', 'click': () => { $scope.data.search_field_more = !$scope.data.search_field_more } },
-            { 'ico': 'glyphicon glyphicon-cog', 'name': '表头设置', 'click': () => { $scope.set_table_list_field('{{$router}}', field_data) } }
+            { 'ico': 'glyphicon-plus', 'name': '新增', 'click': function() { $location.path('/to/your/path') } },
+            { 'ico': 'glyphicon-chevron-down', 'name': '展开和收缩更多查询条件', 'click': function() { $scope.data.search_field_more = !$scope.data.search_field_more } },
+            { 'ico': 'glyphicon glyphicon-cog', 'name': '表头设置', 'click': function() { $scope.set_table_list_field('{{$router}}', field_data) } }
         ];
 
     }];

@@ -1,4 +1,4 @@
-myDirective.directive("selectArea", function () {
+angular.module("myDirective").directive("selectArea", function () {
     return {
         restrict: 'E',
         scope: {

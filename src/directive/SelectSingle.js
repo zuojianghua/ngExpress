@@ -1,6 +1,4 @@
-var myDirective = angular.module("myDirective", []);
-
-myDirective.directive("selectSingle", function () {
+angular.module("myDirective").directive("selectSingle", function () {
     return {
         restrict: 'E',
         scope: {

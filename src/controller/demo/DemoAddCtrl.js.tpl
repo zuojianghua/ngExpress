@@ -24,7 +24,7 @@ var {{$class_name}} = ['$rootScope', '$scope', '$location', '$window', 'api', 'v
         $scope.data = $scope.construct(data, '{{$router}}');
         //标题栏按钮动作 ===============================================
         $scope.title_data = [
-            { 'ico': 'glyphicon-th-list', 'name': '列表', 'click': () => { $location.path('/{{$router}}') } }
+            { 'ico': 'glyphicon-th-list', 'name': '列表', 'click': function() { $location.path('/{{$router}}') } }
         ];
         //表单按钮动作 =================================================
         $scope.form_save = function () {

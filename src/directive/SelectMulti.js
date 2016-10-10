@@ -1,4 +1,4 @@
-myDirective.directive("selectMulti", function () {
+angular.module("myDirective").directive("selectMulti", function () {
     return {
         restrict: 'E',
         scope: {

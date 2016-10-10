@@ -8,17 +8,32 @@ var gulp = require('gulp'),
 var map = require('map-stream');
 var fs = require('fs');
 
+//静态文件拷贝 html/images
+gulp.task('copystatic',['copyhtml','copyimages','copycss'],function(){
+    return;
+});
+
+gulp.task('copyhtml',function(){
+    return gulp.src('../src/html/**/*.*').pipe(gulp.dest('../build/html'));
+});
+gulp.task('copyimages',function(){
+    return gulp.src('../src/images/**/*.*').pipe(gulp.dest('../build/images'));
+});
+gulp.task('copycss',function(){
+    return gulp.src('../src/css/**/*.*').pipe(gulp.dest('../build/css'));
+});
+
 //代码检查
 gulp.task('jshint', function () {
-    return gulp.src(['../src/controller/**/*.js','../src/directive/**/*.js'])
+    return gulp.src(['../src/controller/**/*.js','../src/directive/**/*.js','../src/script/*.js'])
         .pipe(jshint())
-        .pipe(jshint.reporter());
+        .pipe(myReporter);
 });
 
 //代码合并压缩
 gulp.task('minifyjs', function () {
-    return gulp.src(['../src/controller/**/*.js','../src/directive/**/*.js'])      //需要操作的文件
-        .pipe(concat('app.js'))           //合并所有js到main.js
+    return gulp.src(['../src/controller/**/*.js','../src/directive/*.js','../src/script/*.js'])      //需要操作的文件
+        .pipe(concat('main.js'))           //合并所有js到main.js
         .pipe(gulp.dest('../dist'))        //输出到文件夹
         .pipe(rename({ suffix: '.min' }))  //rename压缩后的文件名
         .pipe(uglify())                    //压缩
@@ -26,7 +41,7 @@ gulp.task('minifyjs', function () {
 });
 
 //默认方法
-gulp.task('default', ['jshint'], function () {
+gulp.task('default', ['jshint','copystatic'], function () {
     gulp.start('minifyjs');
 });
 

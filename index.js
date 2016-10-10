@@ -5,7 +5,7 @@ var app = express();
 app.use('/static', express.static('bower_components'));
 app.use('/api_demo', express.static('api_demo'));
 
-app.use('/', express.static('src'));
+app.use('/', express.static('build'));
 
 
 var server = app.listen(3000, function () {

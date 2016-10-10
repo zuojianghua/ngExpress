@@ -36,7 +36,7 @@ var DemoListCtrl = ['$rootScope', '$scope', '$location', '$window', 'api',
         }
 
         $scope.title_data = [
-            { 'ico': 'glyphicon-plus', 'name': '新增', 'click': () => { $location.path('/crm/vip_level/add') } }
+            { 'ico': 'glyphicon-plus', 'name': '新增', 'click': function() { $location.path('/crm/vip_level/add') } }
         ];
 
     }];
