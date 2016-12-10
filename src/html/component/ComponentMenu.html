@@ -1,20 +1,27 @@
+<div ng-mouseleave="slideHide();">
 <div class="logo"><img src="images/logo.png"></div>
-<div class="handle" ng-click="slideToggle()"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+<div class="handle" ng-click="slideToggle();"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
 <div class="first_menu_wrap">
     <ul class="first_menu">
-        <li class="{{menu1_id==0?'curr':''}}" ng-click="goto('/dashboard');" >首页</li>
-        <li class="{{menu1_id==m.purview_id?'curr':''}}" ng-repeat="m in sys_menu" ng-click="click_menu1(m,$index);">{{m.name}}</li>
+        <li class="{{menu1_id==0?'curr':''}}" ng-click="click_index();" >首页</li>
+        <li class="{{menu1_id=='fav'?'curr':''}}" ng-click="click_fav();" ng-mouseover="slideShow();" ng-show="config_sys.has_fav">收藏</li>
+        <li class="{{menu1_id==m.purview_id?'curr':''}}" ng-class="'ico_'+m.purview_id" ng-repeat="m in sys_menu | orderObjectBy:'sql_order'" ng-mouseover="slideShow();" ng-click="click_menu1(m,$index);">{{m.name}}</li>
     </ul>
 </div>
 
 <div class="second_menu_wrap" ng-show='1'>
     <dl class="second_menu">
-        <dt class="title">{{sys_menu[menu1_index].name}}</dt>
-        <div ng-repeat="m2 in sub_menu track by $index">
-            <dt class="{{sub_menu_show[m2.purview_id]?'curr':''}}" ng-click="click_menu2(m2.purview_id);"><i></i>{{m2.name}}</dt>
-            <div ng-show="sub_menu_show[m2.purview_id]">
-                <dd ng-repeat="s in m2.child" ng-click="click_menu3(s);">{{s.name}}</dd>
+        <dt class="title">{{menu1_name}}</dt>
+        <div ng-repeat="m2 in sub_menu | orderObjectBy:'sql_order' track by $index ">
+            <dt class="{{sub_menu_show[m2.purview_id]===false?'':'curr'}}" ng-click="click_menu2(m2.purview_id);"><i></i>{{m2.name}}</dt>
+            <div ng-hide="sub_menu_show[m2.purview_id]===false">
+                <dd ng-repeat="s in m2.child | orderObjectBy:'sql_order' " ng-show="s.status==1" ng-click="click_menu3(s);">{{s.name}}</dd>
             </div>
         </div>
+
+        <div ng-show="menu1_id=='fav'">
+            <dd ng-repeat="s in sys_menu_fav track by $index" ng-click="click_menu3(s);">{{s.name}}</dd>
+        </div>
     </dl>
+</div>
 </div>

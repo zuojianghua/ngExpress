@@ -22,9 +22,12 @@
     "map-stream": "0.0.6"
   },
   "devDependencies": {
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
+    "gulp-flatten": "^0.3.1",
     "gulp-jshint": "^2.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",

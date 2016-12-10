@@ -17,6 +17,19 @@ angular.module('myFilters', [])
         return function (input) {
             return (input===true||input==='true'||input===1||input==='1') ? '\u2713' : '\u2718';
         };
+    }) 
+    .filter('resolvetypemark', function () {
+    	return function (input) {
+			if(input=='0' || input==0){
+				return '未处理';
+			}else if(input=='-1' || input==-1){
+				return '问题单';
+			}else if(input=='1' || input==1){
+				return '处理成功';
+			}else{
+				return '';
+			}
+        };
     })
     .filter('cancelmark', function () {
         return function (input) {
@@ -53,12 +66,17 @@ angular.module('myFilters', [])
             return (input===true||input==='true'||input===1||input==='1') ? '多图文' : '单图文';
         };
     })
+    .filter('logintypemark', function () {
+        return function (input) {
+            return (input===true||input==='true'||input===1||input==='1') ? '退出' : '登录';
+        };
+    })
     .filter('vipmark', function () {
         return function (input) {
             return (input===false||input==='false') ? '' : input;
         };
     })
-    .filter('distributortypemark', function () {
+    .filter('giftdistributortypemark', function () {
         return function (input) {
             return (input===true||input==='true'||input===1||input==='1') ? '部分' : '全部';
         };
@@ -66,6 +84,51 @@ angular.module('myFilters', [])
     .filter('deliverytypemark', function () {
         return function (input) {
             return (input===true||input==='true'||input===1||input==='1') ? '快递' : '自取';
+        };
+    })
+    .filter('apistatusmark', function () {
+        return function (input) {
+            return (input===true||input==='true'||input===1||input==='1') ? '成功' : '失败';
+        };
+    })
+    .filter('consumetypemark', function () {
+        return function (input) {
+            return (input===0||input==='0') ? '消费' : '退货';
+        };
+    })
+    .filter('applicationscopemark', function () {
+        return function (input) {
+            return (input===1||input==='1') ? '全部' : '部分';
+        };
+    })
+    .filter('birthscopemark', function () {
+        return function (input) {
+            return (input===1||input==='1') ? '全部' : '仅限生日会员';
+        };
+    })
+    .filter('noticetypemark', function () {
+        return function (input) {
+            return (input===1||input==='1') ? '其他' : '活动公告';
+        };
+    })
+    .filter('inputtypemark', function () {
+        return function (input) {
+            return (input===1||input==='1') ? '文本框' : '下拉框';
+        };
+    })
+    .filter('noticestatusmark', function () {
+        return function (input) {
+			if(input=='0' || input==0){
+				return '未确认';
+			}else if(input=='1' || input==1){
+				return '已确认';
+			}else if(input=='2' || input==2){
+				return '已审批';
+			}else if(input=='3' || input==3){
+				return '已作废';
+			}else{
+				return '';
+			}
         };
     })
     .filter('favourmark', function () {
@@ -102,6 +165,8 @@ angular.module('myFilters', [])
                 return '男';
             } else if (input == 2 || input == '2') {
                 return '女';
+            } else if (input == 3 || input == '3') {
+                return '保密';
             } else {
                 return '';
             }
@@ -253,4 +318,200 @@ angular.module('myFilters', [])
                 return '';
             }
         };
+    })
+    .filter('sourcemark', function () {
+        return function (input) {
+			if(input == 1 || input == '1'){
+				return 'erp';
+			} else if (input == 6 || input == '6') {
+                return 'pos';
+            } else if (input == 7 || input == '7') {
+                return '百胜icrm';
+            } else if (input == 8 || input == '8') {
+                return 'e3后台';
+            } else if (input == 9 || input == '9') {
+                return '淘宝';
+            } else if (input == 10 || input == '10') {
+                return '拍拍';
+            } else if (input == 11 || input == '11') {
+                return 'openshop';
+            } else if (input == 12 || input == '12') {
+                return '分销商';
+            } else if (input == 13 || input == '13') {
+                return '京东';
+            } else if (input == 14 || input == '14') {
+                return '亚马逊';
+            } else if (input == 15 || input == '15') {
+                return 'QQ网购';
+            } else if (input == 16 || input == '16') {
+                return '一号店';
+            } else if (input == 17 || input == '17') {
+                return 'eBay';
+            } else if (input == 18 || input == '18') {
+                return '网络分销主站';
+            } else if (input == 19 || input == '19') {
+                return '淘宝分销';
+            } else if (input == 20 || input == '20') {
+                return '新浪';
+            } else if (input == 21 || input == '21') {
+                return 'shopex';
+            } else if (input == 22 || input == '22') {
+                return 'ecshop';
+            } else if (input == 23 || input == '23') {
+                return '当当';
+            } else if (input == 24 || input == '24') {
+                return '邮乐';
+            } else if (input == 25 || input == '25') {
+                return '乐酷天';
+            } else if (input == 26 || input == '26') {
+                return 'shopex分销王';
+            } else if (input == 27 || input == '27') {
+                return 'vjia';
+            } else if (input == 28 || input == '28') {
+                return '优购';
+            } else if (input == 29 || input == '29') {
+                return 'efast';
+            } else if (input == 30 || input == '30') {
+                return '微购物';
+            } else if (input == 31 || input == '31') {
+                return '微信';
+            } else if (input == 32 || input == '32') {
+                return '苏宁';
+            } else if (input == 33 || input == '33') {
+                return '唯品会';
+            } else if (input == 34 || input == '34') {
+                return '聚美优品';
+            } else if (input == 35 || input == '35') {
+                return '卖网';
+            } else if (input == 36 || input == '36') {
+                return '库巴';
+            } else if (input == 37 || input == '37') {
+                return '名鞋库';
+            } else if (input == 38 || input == '38') {
+                return '阿里巴巴';
+            } else if (input == 39 || input == '39') {
+                return '口袋通';
+            } else if (input == 40 || input == '40') {
+                return '工行';
+            } else if (input == 41 || input == '41') {
+                return '银泰';
+            } else if (input == 42 || input == '42') {
+                return '走秀网';
+            } else if (input == 43 || input == '43') {
+                return '贝贝网';
+            } else if (input == 44 || input == '44') {
+                return '蘑菇街';
+            } else if (input == 45 || input == '45') {
+                return '拍鞋网';
+            } else if (input == 46 || input == '46') {
+                return '好乐买';
+            } else if (input == 47 || input == '47') {
+                return '乐蜂';
+            } else if (input == 48 || input == '48') {
+                return '微盟';
+            } else if (input == 49 || input == '49') {
+                return '折800';
+            } else if (input == 50 || input == '50') {
+                return 'OS主站';
+            } else if (input == 51 || input == '51') {
+                return 'API接口';
+            } else if (input == 52 || input == '52') {
+                return 'ncm';
+            } else if (input == 53 || input == '53') {
+                return 'BSERP2';
+            } else if (input == 54 || input == '54') {
+                return 'BS3000+';
+            } else if (input == 55 || input == '55') {
+                return '第三方仓储物流';
+            } else if (input == 56 || input == '56') {
+                return '唯品会JIT';
+            } else if (input == 57 || input == '57') {
+                return 'ISHOP';
+            } else if (input == 58 || input == '58') {
+                return '飞牛';
+            } else if (input == 59 || input == '59') {
+                return '蜜芽';
+            } else if (input == 60 || input == '60') {
+                return '百度mall接口';
+            } else if (input == 61 || input == '61') {
+                return '三足接口';
+            } else if (input == 62 || input == '62') {
+                return '移动pos';
+            } else if (input == 63 || input == '63') {
+                return 'M6';
+            } else if (input == 65 || input == '65') {
+                return '速卖通';
+            } else if (input == 66 || input == '66') {
+                return '明星衣橱';
+            } else if (input == 67 || input == '67') {
+                return '百胜E3';
+            } else if (input == 68 || input == '68') {
+                return '润和pos';
+            } else if (input == 9000 || input == '9000') {
+                return '错误来源';
+            } else {
+                return '';
+            }
+        };
+    })
+    .filter('percentageMark', function () {
+        //百分比标记
+        return function (input) {
+			return (parseFloat(input)*100).toFixed(2) + '%';
+        };
+    })
+    .filter('crontabtypemark', function () {
+        return function (input) {
+			if(input==0 || input=='0'){
+                return '指定频率';
+			}else if(input==1 || input=='1'){
+				return '每月第一天';
+			}else{
+				return '未知类型';
+			}
+        };
+    })
+    .filter('emessagetypemark', function () {
+        return function (input) {
+			if(input==0 || input=='0'){
+                return '其它';
+			}else if(input==1 || input=='1'){
+				return '营销';
+			}else if(input==2 || input=='2'){
+				return '订单';
+			}else if(input==3 || input=='3'){
+				return '激活';
+			}else if(input==4 || input=='4'){
+				return '注册';
+			}else{
+				return '';
+			}
+        };
+    })
+    //保留2位小数
+    .filter('formatmoneymark', function () {
+        return function (input) {
+			return Number(input).toFixed(2);
+        };
+    })
+    .filter('subscribemark', function () {
+        return function (input) {
+            if (input == 0 || input == '0') {
+                return '否';
+            } else if (input == 1 || input == '1') {
+                return '是';
+            } else {
+                return '';
+            }
+        };
+    })
+    .filter('default',function(){
+        //当要显示的变量为空时，输出一个默认字符串
+        return function(input,def){
+            if(input==undefined||input==''){
+                return def;
+            }else{
+                return input;
+            }
+        }
     })

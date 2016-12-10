@@ -1,0 +1,35 @@
+<h2 class="pop_title">{{inputTitle}}</h2>
+<div class="pop_cont">
+	<!--显示列表-->
+	<table class="table date_table">
+		<tr>
+			<td>配送类型</td>
+			<td>
+				<select ng-model="from_data.delivery_type" >
+	                <option value="">请选择</option>
+	                <option ng-repeat="(x,y) in search_data_option.delivery_type_options" value="{{x}}">{{y}}</option>
+	            </select>
+			</td>
+		</tr>
+		<tr>
+			<td>快递公司名称</td>
+			<td>
+				<select ng-model="from_data.express_company_code">
+					<option value="">请选择</option>
+					<optgroup label="{{k}}" ng-repeat="(k,v) in search_data_option.express_company_options">
+						<option ng-repeat="(kk, vv) in v" value="{{kk}}">{{vv}}</option>
+					</optgroup>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>快递单号</td>
+			<td>
+				<input type="text" class="form-control" ng-model="from_data.express_no" />
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="btn_wrap">
+	<button class="button emphasize" ng-click="form_save();">保存</button>
+</div>

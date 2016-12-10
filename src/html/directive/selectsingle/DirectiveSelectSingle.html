@@ -1,11 +1,12 @@
 <span class="input-group">
     <input type="text" class="form-control" readonly placeholder="{{inputPlaceholder}}" value="{{inputName}}" ng-click="open_select_window();" />
     <span class="input-group-btn btn-group-sm">
+          <button class="btn btn-default" type="button" ng-disabled="inputReadonly" ng-click="clear_input_data();">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
         <button class="btn btn-default" type="button" ng-disabled="inputReadonly" ng-click="open_select_window();">
             <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
         </button>
-        <button class="btn btn-default" type="button" ng-disabled="inputReadonly" ng-click="clear_input_data();">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
+
     </span>
 </span>

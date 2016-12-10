@@ -1,18 +1,26 @@
 var myApp = angular.module('myApp', [
     'ngRoute',
     'ngDialog',
+    'ngAnimate',
+    'ngTouch',
     'myService',
+    'myConfig',
     'myDirective',
     'myFilters',
     'ui.calendar',
     'color.picker',
     'textAngular',
-    'ngFileUpload'
+    'ngFileUpload',
+    'angular-echarts',
+    'angular-popups',
+    'draw2d'
 ])
     .controller('IndexMainCtrl', IndexMainCtrl)
     .controller('ComponentNavCtrl', ComponentNavCtrl)
     .controller('ComponentMenuCtrl', ComponentMenuCtrl)
     .controller('ComponentTabCtrl', ComponentTabCtrl)
+    .controller('ComponentLoginCtrl', ComponentLoginCtrl)
+    .controller('ComponentTitleCtrl', ComponentTitleCtrl)
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         //路由设置 =================================================
         $routeProvider
@@ -23,6 +31,8 @@ var myApp = angular.module('myApp', [
             .when('/demo/add', { templateUrl: 'html/demo/DemoAdd.html', controller: DemoAddCtrl })
             .when('/demo/view', { templateUrl: 'html/demo/DemoView.html', controller: DemoViewCtrl })
             .when('/demo/auto', { templateUrl: 'html/demo/DemoAuto.html', controller: DemoAutoCtrl })
+
+            .when('/doc/route/entry', { templateUrl: 'html/doc/route/DocRouteEntry.html', controller:  DocRouteEntryCtrl})
 
             .otherwise({ redirectTo: '/dashboard' });
 

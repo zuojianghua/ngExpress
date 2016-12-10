@@ -1,0 +1,24 @@
+<h2 class="pop_title">修改密码</h2>
+<div class="pop_cont">
+	<div class="form-group">
+	  <label class="col-sm-3 control-label">原密码</label>
+	  <div class="col-sm-9">
+	    <input type="password" class="form-control" ng-model="data.form_data.pass_old" />
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-3 control-label">新密码</label>
+	  <div class="col-sm-9">
+	    <input type="password" class="form-control" ng-model="data.form_data.pass_new" />
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label class="col-sm-3 control-label">新密码确认</label>
+	  <div class="col-sm-9">
+	    <input type="password" class="form-control" ng-model="data.form_data.pass_new2" />
+	  </div>
+	</div>
+</div>
+<div class="btn_wrap">
+  <button class="button emphasize" ng-click="form_save();">保 存</button>
+</div>

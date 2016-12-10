@@ -1,0 +1,1 @@
+var myDirective = angular.module("myDirective", []);

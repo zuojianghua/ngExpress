@@ -1,0 +1,22 @@
+<div ng-show="debug_window==0" ng-click="debug_window=1"  style="position: absolute; bottom:5px; right:5px; background-color: orange; z-index:999999; padding:3px;">
+    <a href="javascript:void(0);" style="font-size:12px; font-weight:bold;">调试窗</a>
+</div>
+<div ng-show="debug_window!=0" style="position: absolute; bottom:5px; right:5px; background-color: orange; width:400px; max-height:450px; overflow: scroll; z-index:999999;">
+    <div style="text-align:right; font-size:12px; font-weight:bold; margin:3px;">
+        调试窗口:
+        <a href="javascript:void(0);" ng-click="debug_window=1">当前页面</a>
+        | <a href="javascript:void(0);" ng-click="debug_window=2">监视</a>        
+        | <a href="javascript:void(0);" ng-click="debug_window=0">最小化</a>
+    </div>
+    <textarea ng-show="debug_window==1" style="width:400px; height:400px;font-size:12px; font-family: Courier New, Courier, monospace;">{{histroy[debug_router].scope.data|json}}</textarea>
+    <div ng-show="debug_window==2">
+        <div ng-repeat="v in debug_wacth track by $index">
+            <div style="text-align:center;">
+                <a href="javascript:void(0);" ng-click="add_watch();">+</a>
+                <input type="text" ng-model="v.name" ng-change="change_watch(v);" style="font-size:12px; border:none;font-family: Courier New, Courier, monospace;"/>
+                <a href="javascript:void(0);" ng-click="del_watch($index);">-</a>
+            </div>
+            <textarea style="width:400px; height:150px;font-size:12px; font-family: Courier New, Courier, monospace;">{{v.value|json}}</textarea>
+        </div>
+    </div>
+</div>

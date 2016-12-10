@@ -236,12 +236,12 @@ var DemoAutoCtrl = ['$rootScope', '$scope', '$location', '$window', 'api', '$htt
                             +strtoUp2(p[1])
                             +strtoUp2(p[2])
                             +'Ctrl';
-                o.ctrl_path = 'src/controller/'+p[0]+'/'+p[1]+'/'
+                o.ctrl_path = 'controller/'+p[0]+'/'+p[1]+'/'
                             +strtoUp2(p[0])
                             +strtoUp2(p[1])
                             +strtoUp2(p[2])
                             +'Ctrl.js';
-                o.html_path = 'src/html/'+p[0]+'/'+p[1]+'/'
+                o.html_path = 'html/'+p[0]+'/'+p[1]+'/'
                             +strtoUp2(p[0])
                             +strtoUp2(p[1])
                             +strtoUp2(p[2])+'.html';
@@ -298,7 +298,7 @@ var DemoAutoCtrl = ['$rootScope', '$scope', '$location', '$window', 'api', '$htt
                 disableAnimation: true,
                 showClose: true,
                 width: '',
-                template: 'src/html/demo/DemoAutoDialogSave.html',
+                template: 'html/demo/DemoAutoDialogSave.html',
                 scope: $scope
             });
             $http.post('angular.php', $scope.data.form_data).then(function(ret){
@@ -316,7 +316,7 @@ var DemoAutoCtrl = ['$rootScope', '$scope', '$location', '$window', 'api', '$htt
                 disableAnimation: true,
                 showClose: true,
                 width: '',
-                template: 'src/html/demo/DemoAutoDialogApi.html',
+                template: 'html/demo/DemoAutoDialogApi.html',
                 scope: $scope
             });
             $http.post('get_api_data.php', {data:$scope.auto_configs}).then(function(ret){

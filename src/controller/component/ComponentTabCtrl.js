@@ -21,13 +21,15 @@ var ComponentTabCtrl = ['$rootScope', '$scope', '$location', '$window',
 
         //关闭全部TAB页面
         $rootScope.close_tab_all = function(){
-            for (var key in $rootScope.histroy) {
-                if ($rootScope.histroy.hasOwnProperty(key) && key!='/dashboard') {
-                    delete $rootScope.histroy[key];
+            $scope.confirm('确定要关闭全部页签嘛？',function(){
+                for (var key in $rootScope.histroy) {
+                    if ($rootScope.histroy.hasOwnProperty(key) && key!='/dashboard') {
+                        delete $rootScope.histroy[key];
+                    }
                 }
-            }
-            $location.path('/dashboard');
-            $location.replace();
+                $location.path('/dashboard');
+                $location.replace();
+            });
         };
 
         //TAB滚动

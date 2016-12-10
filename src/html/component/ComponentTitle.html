@@ -1,8 +1,20 @@
 <div class="panel_title">
     <strong>{{data.title}}</strong>
     <p class="btn_wrap">
-      <button class="button" title="{{btn.name}}" ng-repeat="btn in title_data track by $index" ng-click="btn.click();" >
-        <span class="glyphicon" ng-class="btn.ico" ></span>
+      <button class="button" ng-repeat="btn in title_data track by $index" 
+        ng-click="btn.click();" ng-show="btn.show||btn.show==undefined" 
+        ng-mouseenter="bubble[$index]=true;" ng-mouseleave="bubble[$index]=false" ng-mousedown="bubble[$index]=false" id="btn_ico_{{$index}}" 
+        excel-import="btn.type!=undefined&&btn.type=='excelImport'" 
+        excel-export="btn.type!=undefined&&btn.type=='excelExport'" 
+        excel-code="btn.code"
+      >
+        <span class="glyphicon" ng-class="btn.ico"></span>
+        <bubble ng-if="bubble[$index]" for="btn_ico_{{$index}}" align="top" close="bubble[$index]=false" duration="2000">{{btn.name}}</bubble>
+      </button>
+      
+      <button class="button" ng-click="add_to_fave();" ng-show="data.fav" ng-mouseenter="bubble.fav=true" ng-mouseleave="bubble.fav=false" ng-mousedown="bubble.fav=false" id="btn_ico_fav" >
+      	<span class="glyphicon" ng-class="{true:'glyphicon-star',false:'glyphicon-star-empty'}[collection]" ></span>
+        <bubble ng-if="bubble.fav" for="btn_ico_fav" align="top" close="bubble.fav=false">收藏</bubble>
       </button>
     </p>
 </div>

@@ -41,7 +41,7 @@ function js_page($page_data){
     mkDirs($js_files_info['dirname']);
     //1 列表页
     if($page_data['ctrl_type']=='list'){
-        $source = file_get_contents('src/controller/demo/DemoListCtrl.js.tpl');
+        $source = file_get_contents('controller/demo/DemoListCtrl.js.tpl');
         $output = str_replace(
             array('{{$date}}','{{$version}}','{{$class_name}}','{{$title}}','{{$router}}','{{$api}}'),
             array($date,$version,$js_files_info['filename'],$page_data['ctrl_title'],$page_data['ctrl_name'],$page_data['ctrl_api']),$source);
@@ -51,7 +51,7 @@ function js_page($page_data){
 
     //2 新增页
     if($page_data['ctrl_type']=='add'){
-        $source = file_get_contents('src/controller/demo/DemoAddCtrl.js.tpl');
+        $source = file_get_contents('controller/demo/DemoAddCtrl.js.tpl');
         $valid = '';
         foreach($page_data['form_fields'] as $form_field){
             if($form_field['orders']==''){
@@ -86,7 +86,7 @@ function html_page($page_data){
 
     //1 列表页
     if($page_data['ctrl_type']=='list'){
-        $source = file_get_contents('src/html/demo/DemoList.html.tpl');
+        $source = file_get_contents('html/demo/DemoList.html.tpl');
         //查询区域
         $search_field = '';
         usort($page_data['search_fields'],'sort_by_orders');
@@ -189,7 +189,7 @@ function html_page($page_data){
 
     //2 新增页
     if($page_data['ctrl_type']=='add'){
-        $source = file_get_contents('src/html/demo/DemoAdd.html.tpl');
+        $source = file_get_contents('html/demo/DemoAdd.html.tpl');
         //查询区域
         $str_field = '';
         usort($page_data['form_fields'],'sort_by_orders');

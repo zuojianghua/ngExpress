@@ -1,0 +1,11 @@
+<div class="input-group">
+    <input type="text" class="form-control" readonly value="{{inputName}}" ngf-select="file_select($file)" ng-disabled="inputReadonly" />
+    <div class="input-group-btn btn-group-sm">
+        <button ng-show="switch" class="btn btn-default" type="button" ng-disabled="false" ng-click="upload_file();" title="上传选中文件">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+        </button>
+        <button class="btn btn-default" type="button" ng-disabled="false" ng-click="clear_input_data();" title="清空当前文件">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </button>
+    </div>
+</div>

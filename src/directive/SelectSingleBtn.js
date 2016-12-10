@@ -1,5 +1,5 @@
 //视图文件共享 selectSingle 的
-angular.module("myDirective").directive("selectSingleBtn", function () {
+myDirective.directive("selectSingleBtn", function () {
     return {
         restrict: 'E',
         scope: {

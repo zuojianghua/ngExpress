@@ -1,0 +1,27 @@
+<h2 class="pop_title">{{inputTitle}}</h2>
+<div class="pop_cont">
+	<!--显示列表-->
+	<table class="table date_table">
+		<tr>
+			<td>充值金额</td>
+			<td>
+				<input type="text" class="form-control" ng-model="from_data.recharge_money" />
+			</td>
+		</tr>
+		<tr>
+			<td>金额回馈</td>
+			<td>
+				<input type="text" class="form-control" ng-model="from_data.feedback_money" />
+			</td>
+		</tr>
+		<tr>
+			<td>备注</td>
+			<td>
+				<input type="text" class="form-control" ng-model="from_data.detail_remark" />
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="btn_wrap">
+	<button class="button emphasize" ng-click="form_save();">保存</button>
+</div>

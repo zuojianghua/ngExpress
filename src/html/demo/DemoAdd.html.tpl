@@ -8,7 +8,7 @@
  * $str_field 表单区域
  -->
 
-<div class="panel_title_wrap" ng-include="'src/html/component/ComponentTitle.html'"></div>
+<div class="panel_title_wrap" ng-include="'html/component/ComponentTitle.html'"></div>
 
 <!--搜索区域-->
 <div class="panel_cont">

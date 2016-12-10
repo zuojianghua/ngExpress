@@ -1,0 +1,25 @@
+<ul class="list-group list-group-diy">
+    <div class="p_c_group">
+        <a class="list-group-item" href="javascript:void(0);" ng-click="listDefaultShow=!listDefaultShow;"><i class="glyphicon" ng-class="listDefaultShow?'glyphicon-plus':'glyphicon-minus';"></i> {{listTitle}}<span class="badge"  ng-show="listDefaultShow">{{listValue.length}}</span></a>
+
+        <div class="child_box" ng-show="!listDefaultShow">
+            <div class="p_c_group" ng-repeat="li1 in listValue">
+                <a class="list-group-item" href="javascript:void(0);" ng-click="li1.hide=!li1.hide">
+                    <i class="glyphicon" ng-class="li1.hide?'glyphicon-minus':'glyphicon-plus'" ng-if="li1.child&&li1.child.length>0"></i>
+                    <span > {{li1.category_name}}</span>
+                    <span class="badge" ng-if="li1.child&&li1.child.length>0" ng-show="!li1.hide">{{li1.child.length}}</span>
+                </a>
+                <div class="child_box" ng-if="li1.child&&li1.child.length>0" ng-hide="!li1.hide">
+                    <div class="p_c_group" ng-repeat="li2 in li1.child">
+                        <a class="list-group-item" href="javascript:void(0);" ng-click="click(li2);">
+                            <i class="glyphicon" ng-class="li2.hide?'glyphicon-plus':'glyphicon-minus'" ng-if="li2.child&&li2.child.length>0" ng-click="li2.hide=!li2.hide"></i>
+                            <span > {{li2.list_name}}</span>
+                            <span class="badge" ng-if="li2.child&&li2.child.length>0" >{{li2.child.length}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ul>

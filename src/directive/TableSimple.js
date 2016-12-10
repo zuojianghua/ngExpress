@@ -1,4 +1,4 @@
-angular.module("myDirective").directive("tableSimple", function () {
+myDirective.directive("tableSimple", function () {
     return {
         restrict: 'E',
         scope: {

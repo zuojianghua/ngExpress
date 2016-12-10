@@ -1,0 +1,67 @@
+<h2 class="pop_title">素材库</h2>
+<style type="text/css">
+.list_con{
+	padding-top: 20px;
+}
+.list_con .list{
+	width: 100px;
+    height: 151px;
+    position: relative;
+    border: 1px solid #c5c5c5;
+    border-radius: 2px;
+    float: left;
+    cursor: pointer;
+    margin: 0 16px 23px 16px;
+}
+.list_con .list .li_img{
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+}
+.list_con .list .li_style{
+	width: 100px;
+    position: absolute;
+    top: 71px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+}
+.list_con .list .li_title{
+	width: 100px;
+    overflow: hidden;
+    height: 29px;
+    line-height: 29px;
+    font-weight: bold;
+}
+.list_con .list .li_con{
+	width: 100px;
+    overflow: hidden;
+    height: 13px;
+    line-height: 13px;
+    font-size: 10px
+}
+.list_con .list .li_img img{
+	width: 100px;
+	height: 100px;
+}
+</style>
+<div class="list_con">
+	<div ng-click="get_weixin_img(v.fodder_library_id)" ng-repeat="v in data.fodders_data" class="list">
+		<div class="li_img">
+			<img src="{{v.img_url}}">
+		</div>
+		<div class="li_style">
+			{{v.img_type==0?'单图文':'多图文'}}
+		</div>
+		<div class="li_title">
+			{{v.title}}
+		</div>
+		<div class="li_con">
+			{{v.descript}}
+		</div>
+	</div>
+
+	<div style="clear: both;"></div>
+</div>

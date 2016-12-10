@@ -1,11 +1,11 @@
 <div class="page_turner">
-    <span>当前第{{pageData.pageNum}}/{{pageData.countPage}}页 共{{pageData.count}}条记录</span>
+    <span>当前第<span class="clolr_blue">{{pageData.pageNum}}/{{pageData.countPage}}</span>页 共<span class="clolr_blue">{{pageData.count}}</span>条记录</span>
     <button ng-click="goto_first();"><span class="glyphicon glyphicon-step-backward"></span></button>
     <button ng-click="goto_prev();"><span class="glyphicon glyphicon-triangle-left"></span></button>
     <button ng-if="pageData.pageNum-3>0" ng-click="goto_page(pageData.pageNum-3);">{{pageData.pageNum-3}}</button>
     <button ng-if="pageData.pageNum-2>0" ng-click="goto_page(pageData.pageNum-2);">{{pageData.pageNum-2}}</button>
     <button ng-if="pageData.pageNum-1>0" ng-click="goto_page(pageData.pageNum-1);">{{pageData.pageNum-1}}</button>
-    <button>{{pageData.pageNum}}</button>
+    <button class="curr">{{pageData.pageNum}}</button>
     <button ng-if="pageData.pageNum<pageData.countPage" ng-click="goto_page(pageData.pageNum+1);">{{pageData.pageNum+1}}</button>
     <button ng-if="pageData.pageNum+1<pageData.countPage" ng-click="goto_page(pageData.pageNum+2);">{{pageData.pageNum+2}}</button>
     <button ng-if="pageData.pageNum+2<pageData.countPage" ng-click="goto_page(pageData.pageNum+3);">{{pageData.pageNum+3}}</button>
@@ -16,11 +16,10 @@
     <button ng-click="goto_page(i);">GO</button>
     <span>每页显示</span>
     <select ng-model="pageData.num" ng-change="change_page_size();">
-        <option value="5">5</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
+        <option value="5"   ng-selected="pageData.num==5">5</option>
+        <option value="15"  ng-selected="pageData.num==15">15</option>
+        <option value="20"  ng-selected="pageData.num==20">20</option>
+        <option value="50"  ng-selected="pageData.num==50">50</option>
+        <option value="100" ng-selected="pageData.num==100">100</option>
     </select>
 </div>

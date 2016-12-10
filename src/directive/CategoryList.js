@@ -1,5 +1,4 @@
-angular.module("myDirective",[]);
-angular.module("myDirective").directive("categoryList", function () {
+myDirective.directive("categoryList", function () {
     return {
         restrict: 'E',
         scope: {
@@ -14,7 +13,7 @@ angular.module("myDirective").directive("categoryList", function () {
                 if(typeof $scope.itemClick=='function'){
                     $scope.itemClick(v);
                 }
-                //console.log(v);
+//                console.log(v);
             }
             
         }]

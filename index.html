@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>ngExpress说明文档</title>
+    <link rel="stylesheet" type="text/css" href="css/lib.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="lib.min.js"></script>
+    <!--workflow如需加载 在app.js中注入draw2d模块-->
+    <script src="workflow.min.js"></script>
+    <script src="main.min.js"></script>
+</head>
+
+<body ng-controller="IndexMainCtrl">
+    <div class="page" ng-show="login">
+		<div class="sidebar" ng-class="{true:'shrink',false:''}[shrink]" ng-controller="ComponentMenuCtrl" ng-include="'html/component/ComponentMenu.html'"></div>
+		<div class="content" ng-class="{true:'stretch',false:''}[stretch]">
+			<div class="top" ng-include="'html/component/ComponentNav.html'" ng-controller="ComponentNavCtrl"></div>
+			<div class="tab" ng-controller="ComponentTabCtrl" ng-include="'html/component/ComponentTab.html'"></div>
+			<div class="main_wrap">
+				<div class="main_box">
+					<div class="main" ng-view>加载中...</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+
+	<div class="login" ng-show="!login">
+		<div class="midl" ng-show="!login" ng-controller="ComponentLoginCtrl" ng-include="'html/component/ComponentLogin.html'"></div>
+	</div>
+
+	<div ng-if="config_sys.dump_mode" ng-include="'html/component/ComponentDebug.html'"></div>
+
+</body>
+</html>

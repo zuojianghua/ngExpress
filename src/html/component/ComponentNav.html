@@ -1,11 +1,17 @@
-
-<button class="set"><span class="glyphicon glyphicon-cog"></span></button>
-<input type="text" class="search" placeholder="菜单搜索"><i class="search_btn"><span class="glyphicon glyphicon-search"></span></i>
-<a class="link" href="javascript:void(0)">admin<i></i>
+<button class="help" ng-click="goto('sys/help_center/index');"><span class="glyphicon glyphicon-record"></span><span class="question">帮助<br/>中心</span></button>
+<div class="search_wrap" data-ng-mouseleave="search_prompt_hide();" >
+	<input type="text" class="search" placeholder="菜单搜索" ng-value="{{search_data.keywords}}" ng-model="search_data.keywords" ng-change="search_prompt();" ><i class="search_btn" ng-click="search_prompt();"><span class="glyphicon glyphicon-search"></span></i>
+	<ul class="search_prompt" ng-show="search_prompt_on">
+		<li ng-repeat="m in search_result" ng-click="search_result_click(m);">{{m.name}}</li>
+	</ul>	
+</div>
+<a class="link" href="javascript:void(0)">{{info_user_name}}<i></i>
 	<ul class="user_menu">
-	<li>修改密码</li>
-	<li>退出</li>
-</ul>
+		<li ng-click="change_pass();">修改密码</li>
+		<li ng-click="warrant();">授权信息</li>
+		<li ng-click="logout();">退出</li>
+	</ul>
 </a>
 <a class="link" href="javascript:void(0)">E3</a>
-
+<!--正式版本请去除-->
+<a class="link" href="javascript:void(0)" ng-click="goto('demo/lab');" style="text-decoration: underline;" alt="正式版本请去除">实验室</a>

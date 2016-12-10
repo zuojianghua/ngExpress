@@ -1,4 +1,4 @@
-angular.module("myDirective").directive("selectDate", function () {
+myDirective.directive("selectDate", function () {
     return {
         restrict: 'E',
         scope: {

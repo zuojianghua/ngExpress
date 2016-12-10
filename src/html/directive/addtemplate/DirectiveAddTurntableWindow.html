@@ -1,0 +1,58 @@
+<h2 class="pop_title">{{inputTitle}}</h2>
+
+<div class="panel_cont">
+	<ul class="search_terms">
+		<li ng-show="data.form_data.prize_type==1">
+			<label class="name">请选择奖品</label>
+            <select-single class="select_single" input-value="data.turntable_data.award_code" input-name="data.turntable_data.award_code_name" input-select="select_goods"></select-single>
+		</li>
+		<li ng-show="data.form_data.prize_type==2">
+			<label class="name">积分值</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.integral_value" />
+		</li>
+		<li ng-show="data.form_data.prize_type==3">
+			<label class="name">优惠券代码</label>
+            <select-single class="select_single" input-value="data.turntable_data.coupon_code" input-name="data.turntable_data.coupon_code_name" input-change="get_coupon" input-select="select_coupon"></select-single>
+		</li>
+		<li ng-show="data.form_data.prize_type==1">
+			<label class="name">奖品数量</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.award_num" />
+		</li>
+		<li ng-show="data.form_data.prize_type==2">
+			<label class="name">数量</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.integral_num" />
+		</li>
+		<li ng-show="data.form_data.prize_type==3">
+			<label class="name">数量</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.coupon_num" />
+		</li>
+		<li ng-show="data.form_data.prize_type==1">
+			<label class="name">概率</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.award_probability" />
+		</li>
+		<li ng-show="data.form_data.prize_type==2">
+			<label class="name">概率</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.integral_probability" />
+		</li>
+		<li ng-show="data.form_data.prize_type==3">
+			<label class="name">概率</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.coupon_probability" />
+		</li>
+		<li ng-show="data.form_data.weixin_activity_type==1">
+			<label class="name">在转盘上显示的奖品名称</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.prize_name" />
+		</li>
+		<li ng-show="data.form_data.weixin_activity_type==1">
+			<label class="name">中奖指针指向的位置</label>
+			<input type="text" class="form-control" ng-model="data.turntable_data.prize_location" />
+		</li>
+		<li ng-show="data.form_data.weixin_activity_type==1">
+			<label class="name">奖品图片</label>
+            <upload-picture input-value="data.turntable_data.prize_img" input-name="data.turntable_data.prize_img_show"></upload-picture>
+		</li>
+	</ul>
+</div>
+
+<div class="btn_wrap">
+	<button class="button emphasize" ng-click="turntable_save();">保存</button>
+</div>
